@@ -1,0 +1,39 @@
+---
+import { INTRO_BAGDES } from "../../constants/introBages";
+import Badge from "../ui/Badge.astro";
+import Button from "../ui/Button.astro";
+import HeroTitle from "../ui/HeroTitle.astro";
+import MeSVG from "../ui/MeSVG.astro";
+---
+
+<section class="bg-primary w-full h-screen flex flex-col items-space-between justify-between gap-5 px-10">
+    <h1 class="sr-only">ALVARO ALARCON WEB DEV</h1>
+    <HeroTitle />
+    <div>
+    <div>
+        <p class="text-white font-bebas text-3xl">LET'S NOT WASTE TIME</p>
+        <p class="text-white text-2sm">If you’re looking for a junior who knows a bit of...</p>
+    </div>
+
+    <div class="flex gap-2 flex-wrap">
+        {INTRO_BAGDES.map((badge) => {
+            return (
+                <Badge text={badge.text} />
+            )
+        })}
+    </div>
+    </div>
+
+
+<div class="flex gap-5">
+    <MeSVG />
+    <div class="flex flex-col gap-5">        
+        <p class="text-on-primary font-bebas text-3xl">I'M YOUR GUY!</p>
+        <div class="flex flex-col gap-5">
+            <Button variant="secondary" text="Learn more" />
+            <Button variant="secondary-reversed" text="Contact" />
+        </div>
+</div>
+</div>
+
+</section>  

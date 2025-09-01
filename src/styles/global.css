@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+:root {
+  scroll-behavior: smooth;
+}
+
+body { 
+    font-family: "Open sans", sans-serif;
+    background-color:#567C71;
+    overflow-x: clip;
+}
+
+@theme {
+    --color-primary: #567C71;
+    --color-on-primary: #FFEA8C;
+    --color-secondary: #E07A5F;
+    --color-on-secondary: #FFEBD2;
+    --color-tertiary: #3D405B;
+    --color-on-tertiary: #F8F4EC;
+    --color-error: #EF4444;
+    --font-bebas: "Bebas Neue", sans-serif;
+
+    --box-shadow-primary: 4px 4px 0px var(--color-primary);
+    --box-shadow-secondary: 4px 4px 0px var(--color-secondary);
+    --box-shadow-tertiary: 4px 4px 0px var(--color-tertiary);
+    --box-shadow-on-primary: 4px 4px 0px var(--color-on-primary);
+    --box-shadow-on-secondary: 4px 4px 0px var(--color-on-secondary);
+    --box-shadow-on-tertiary: 4px 4px 0px var(--color-on-tertiary);
+}
+  @font-face {
+    font-family: "Bebas Neue";
+    src: url("/fonts/BebasNeue-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Open Sans";
+    src: url("/fonts/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
