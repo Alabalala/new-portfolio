@@ -11,6 +11,7 @@ const { type = "text", placeholder, value, onChange, required = false, inputName
       value={value}
       onchange={onChange}
       required={required}
+      minlength="10"
     />
   ) : (
     <input
@@ -21,6 +22,9 @@ const { type = "text", placeholder, value, onChange, required = false, inputName
       value={value}
       onchange={onChange}
       required={required}
+      minlength="3"
+      pattern="\S.*\S|\S"
+      title="Please enter at least one non-space character"
     />
   )
 }
