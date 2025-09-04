@@ -4,23 +4,34 @@ import "../styles/global.css";
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="author" content="Álvaro Alarcón" />
+    <meta name="keywords" content="web dev, dev, react, astro" />
+    <title>Álvaro Alarcón web dev: react, astro, nextJs, tailwind, and more...!</title>
+
+    <meta property="og:title" content="ALVARO ALARCON WEB DEV" />
+    <meta
+      property="og:description"
+      content="Bilinguar web dev who knows react, astro, nextJs, tailwind, and more..."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="alvaroalarcon.com" />
+    <meta property="og:image" content="alvaroalarcon.com/og-banner.png" />
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>
