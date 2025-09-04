@@ -20,7 +20,13 @@ export const INTRO_BAGDES = [
         {
         text: "SASS",
     },
-        {
+    {
         text: "FIGMA",
+    },
+    {
+        text: "GIT",
+    },
+    {
+        text: "GITHUB",
     },
 ];

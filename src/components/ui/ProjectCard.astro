@@ -1,0 +1,31 @@
+---
+import Badge from "./Badge.astro";
+import Link from "./Link.astro";
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+
+<article class="shadow-(--box-shadow-tertiary)">
+  <div class="py-4" style={`background-color: ${project.data.color}`}>
+    <img
+      class="h-15 mx-auto"
+      src={`/logos/${project.data.image}.webp`}
+      alt={`Logo de ${project.data.title}`}
+    />
+  </div>
+  <div class="bg-on-tertiary p-5 flex flex-col gap-5">
+    <h3 class="font-bebas text-2xl">{project.data.title}</h3>
+    <div class="flex flex-row flex-wrap gap-2">
+      {
+        project.data.tags?.map((tag: string) => {
+          return <Badge text={tag} />;
+        })
+      }
+    </div>
+    <Content entry={project} />
+    <div class="flex justify-center">
+      <Link text="Visit website" href={project.data.link} variant="secondary" />
+    </div>
+  </div>
+</article>

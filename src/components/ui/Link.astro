@@ -1,0 +1,7 @@
+---
+import { buttonVariants } from "../../styles/tv/buttonVariants";
+
+const { text, variant, href } = Astro.props;
+---
+
+<a href={href} class={buttonVariants({ buttonVariant: variant })}>{text}<slot /></a>
