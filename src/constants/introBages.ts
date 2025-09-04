@@ -29,4 +29,10 @@ export const INTRO_BAGDES = [
     {
         text: "GITHUB",
     },
+        {
+        text: "UX",
+    },
+    {
+        text: "COPYWRITING",
+    },
 ];

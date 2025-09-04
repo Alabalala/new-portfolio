@@ -1,23 +1,56 @@
 ---
+import { CONTACT_FORM_INPUT } from "../../constants/contactForm";
+import Button from "../ui/Button.astro";
 import H2 from "../ui/H2.astro";
+import Input from "../ui/Input.astro";
 import Link from "../ui/Link.astro";
 ---
 
 <div
+  id="contact"
   class="w-full h-0 border-l-[50vw] border-l-transparent border-r-[50vw] border-r-transparent border-b-[20px] border-b-secondary"
 >
 </div>
-<section class="bg-secondary w-full flex flex-col gap-5 pt-10 px-10">
+<section class="bg-secondary w-full flex flex-col gap-5 py-20 px-10">
   <H2>CONTACT</H2>
 
   <div class="flex gap-10 justify-center">
-    <Link>
-      <img class="w-10" src="/logos/linkedin.webp" alt="Link to my linkedin" />
+    <Link href="https://www.linkedin.com/in//">
+      <img
+        class="w-10 drop-shadow-(--box-shadow-primary)"
+        src="/logos/linkedin.webp"
+        alt="Link to my linkedin"
+      />
     </Link>
 
-    <Link>
-      <img class="w-10" src="/logos/github.webp" alt="Link to my github" />
+    <Link href="https://github.com/Alabalala">
+      <img
+        class="w-10 drop-shadow-(--box-shadow-primary)"
+        src="/logos/github.webp"
+        alt="Link to my github"
+      />
     </Link>
   </div>
-  <form action=""></form>
+
+  <form
+    action="https://formsubmit.co/alvaro.alarcon.bermejo@gmail.com"
+    method="POST"
+    class="flex flex-col gap-5 mt-5"
+    action=""
+  >
+    {
+      CONTACT_FORM_INPUT.map((input) => {
+        return (
+          <div class="flex flex-col gap-2">
+            <label class="text-on-tertiary font-bold" for={input.name}>
+              {input.label}
+            </label>
+            <Input inputName={input.name} type={input.type} placeholder={input.placeholder} />
+          </div>
+        );
+      })
+    }
+
+    <Button type="submit" variant="on-secondary" text="Send" />
+  </form>
 </section>
