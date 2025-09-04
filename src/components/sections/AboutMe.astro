@@ -1,39 +1,41 @@
 ---
 import { LOGOS } from "../../constants/logos";
 import H2 from "../ui/H2.astro";
+import Text from "../ui/Text.astro";
 ---
 
-<section
-  id="about-me"
-  class="px-10 z-10 py-10 bg-tertiary flex flex-col gap-5 overflow-clip translate-z-[0px] shadow-2xl"
->
-  <H2>ABOUT ME</H2>
-  <div class="text-on-tertiary text-justify leading-8 space-y-5">
-    <p>I’m a bilingual junior web dev with 1 year of experience.</p>
-    <p>
-      I love building clean, user-friendly interfaces that balance design and functionality. I
-      always begin in Figma, where I prototype and experiment before I turn my ideas into website
-      coded in React, Next.js, and Astro.
-    </p>
-    <p>
-      Everything you see on this page, illustrations included, I’ve designed it myself with Figma.
-    </p>
-  </div>
+<section id="about-me" class="bg-tertiary shadow-2xl overflow-y-hidden">
+  <div
+    class="px-10 md:py-20 z-10 min-h-screen md:max-w-[800px] py-10 mx-auto flex flex-col align-middle justify-center gap-5"
+  >
+    <H2>ABOUT ME</H2>
+    <div class="text-on-tertiary text-justify leading-8 space-y-5">
+      <Text>I’m a bilingual junior web dev with 1 year of experience.</Text>
+      <Text>
+        I love building clean, user-friendly interfaces that balance design and functionality. I
+        always begin in Figma, where I prototype and experiment before I turn my ideas into website
+        coded in React, Next.js, and Astro.
+      </Text>
+      <Text>
+        Everything you see on this page, illustrations included, I’ve designed it myself with Figma.
+      </Text>
+    </div>
 
-  <div class="flex flex-row w-4/3 gap-7 justify-between -ml-15 py-8">
-    {
-      LOGOS.map((logo) => {
-        const duration = (2 + Math.random() * 2).toFixed(2);
-        const delay = (Math.random() * 2).toFixed(2);
-        return (
-          <img
-            style={`animation-duration: ${duration}s; animation-delay: ${delay}s;`}
-            class="w-auto h-15 animate-float"
-            src={`/logos/${logo.path}.png`}
-            alt={logo.alt}
-          />
-        );
-      })
-    }
+    <div class="flex flex-row w-4/3 gap-7 justify-between -ml-15 py-8">
+      {
+        LOGOS.map((logo) => {
+          const duration = (2 + Math.random() * 2).toFixed(2);
+          const delay = (Math.random() * 2).toFixed(2);
+          return (
+            <img
+              style={`animation-duration: ${duration}s; animation-delay: ${delay}s;`}
+              class="w-auto h-15 lg:h-20 animate-float"
+              src={`/logos/${logo.path}.png`}
+              alt={logo.alt}
+            />
+          );
+        })
+      }
+    </div>
   </div>
 </section>

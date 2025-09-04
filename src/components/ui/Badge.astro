@@ -3,8 +3,7 @@ const { text, style } = Astro.props;
 ---
 
 <div
-  class={`bg-tertiary rounded-4xl text-center py-1 px-3 border ${style && style}
-`}
+  class={`bg-tertiary rounded-4xl text-center py-1 px-3 border ${style && style} md:py-2 md:px-5 md:text-3xl cursor-default`}
 >
   <p class="text-white font-bebas text-md uppercase">{text}</p>
 </div>

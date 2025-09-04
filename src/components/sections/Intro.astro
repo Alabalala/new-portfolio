@@ -5,6 +5,7 @@ import Button from "../ui/Button.astro";
 import HeroTitle from "../ui/HeroTitle.astro";
 import Link from "../ui/Link.astro";
 import MeSVG from "../ui/MeSVG.astro";
+import Text from "../ui/Text.astro";
 ---
 
 <section
@@ -13,10 +14,10 @@ import MeSVG from "../ui/MeSVG.astro";
   <h1 class="sr-only">ALVARO ALARCON WEB DEV</h1>
   <HeroTitle />
 
-  <div class="flex flex-col gap-5">
+  <div class="flex flex-col gap-5 max-w-[700px]">
     <div>
-      <p class="text-white font-bebas text-3xl">LET'S NOT WASTE TIME</p>
-      <p class="text-white text-2sm">If you’re looking for a web dev who knows...</p>
+      <p class="text-white font-bebas text-4xl md:text-6xl">LET'S NOT WASTE TIME</p>
+      <Text>If you’re looking for a web dev who knows...</Text>
     </div>
 
     <div class="flex gap-2 flex-wrap">
@@ -31,7 +32,7 @@ import MeSVG from "../ui/MeSVG.astro";
   <div class="flex gap-5">
     <MeSVG />
     <div class="flex flex-col gap-5">
-      <p class="text-on-primary text-center font-bebas text-3xl">I'M YOUR GUY!</p>
+      <p class="text-on-primary text-center font-bebas text-3xl md:text-6xl">I'M YOUR GUY!</p>
       <div class="flex flex-col gap-5 animate-pulse">
         <Link href="#about-me" variant="secondary" text="Learn more" />
         <Link href="#contact" variant="secondary-reversed" text="Contact" />

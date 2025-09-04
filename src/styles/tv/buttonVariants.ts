@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const buttonVariants = tv({
-    base: "px-4 transition-colors font-bebas text-2xl text-center",
+    base: "px-4 transition-colors font-bebas text-2xl text-center md:text-4xl lg:text-5xl md:px-8 md:py-2",
     variants: {
         buttonVariant: 
         {

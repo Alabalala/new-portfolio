@@ -1,0 +1,7 @@
+---
+const { black = false } = Astro.props;
+---
+
+<p class={`text-sm md:text-2xl md:leading-15 ${black ? "text-black" : "text-white"}`}>
+  <slot />
+</p>
