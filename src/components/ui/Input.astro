@@ -6,7 +6,7 @@ const { type = "text", placeholder, value, onChange, required = false, inputName
   type === "textarea" ? (
     <textarea
       name={inputName}
-      class={`bg-on-secondary p-2 shadow-(--box-shadow-primary) placeholder:text-sm`}
+      class={`bg-on-secondary p-2 shadow-(--box-shadow-primary) placeholder:text-sm md:placeholder:text-xl md:p-4`}
       placeholder={placeholder}
       value={value}
       onchange={onChange}
@@ -16,15 +16,13 @@ const { type = "text", placeholder, value, onChange, required = false, inputName
   ) : (
     <input
       name={inputName}
-      class={`bg-on-secondary p-2 shadow-(--box-shadow-primary) placeholder:text-sm`}
+      class={`bg-on-secondary p-2 shadow-(--box-shadow-primary) placeholder:text-sm md:placeholder:text-xl md:p-4`}
       type={type}
       placeholder={placeholder}
       value={value}
       onchange={onChange}
       required={required}
-      minlength="3"
-      pattern="\S.*\S|\S"
-      title="Please enter at least one non-space character"
+      minlength="4"
     />
   )
 }

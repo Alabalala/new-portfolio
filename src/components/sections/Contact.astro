@@ -43,7 +43,7 @@ import Link from "../ui/Link.astro";
         CONTACT_FORM_INPUT.map((input) => {
           return (
             <div class="flex flex-col gap-2">
-              <label class="text-on-tertiary font-bold" for={input.name}>
+              <label class="text-on-tertiary font-bold md:text-2xl" for={input.name}>
                 {input.label}
               </label>
               <Input inputName={input.name} type={input.type} placeholder={input.placeholder} />
