@@ -1,0 +1,32 @@
+---
+import { CONTACT_FORM_INPUT } from "../../constants/contactForm";
+import Button from "./Button.astro";
+import Input from "./Input.astro";
+---
+
+<form
+  id="contactForm"
+  method="POST"
+  class="flex flex-col gap-5 mt-5"
+  action="https://formsubmit.co/alvaro.alarcon.bermejo@gmail.com"
+>
+  {
+    CONTACT_FORM_INPUT.map((input) => {
+      return (
+        <div class="flex flex-col gap-2">
+          <label class="text-on-tertiary font-bold md:text-2xl" for={input.name}>
+            {input.label}
+          </label>
+          <Input inputName={input.name} type={input.type} placeholder={input.placeholder} />
+        </div>
+      );
+    })
+  }
+  <input type="text" name="_honey" style="display:none" />
+
+  <ul id="errors" class="p-4 bg-on-secondary font-bold text-red-950 text-sm"></ul>
+
+  <Button type="submit" variant="on-secondary" text="Send" />
+</form>
+
+<script type="module" defer src="/src/scripts/contactForm.ts"></script>
