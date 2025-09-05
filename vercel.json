@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    { "source": "/en/web-dev", "destination": "/", "permanent": true },
+    { "source": "/es/web-dev", "destination": "/", "permanent": true },
+    { "source": "/en/copy", "destination": "/", "permanent": true },
+    { "source": "/es/copy", "destination": "/", "permanent": true },
+    { "source": "/en/contact", "destination": "/", "permanent": true },
+    { "source": "/es/contact", "destination": "/", "permanent": true }
+  ]
+}
