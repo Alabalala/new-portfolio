@@ -1,8 +1,7 @@
 ---
-import { CONTACT_FORM_INPUT } from "../../constants/contactForm";
-import Button from "../ui/Button.astro";
+import ContactForm from "../ui/ContactForm.astro";
 import H2 from "../ui/H2.astro";
-import Input from "../ui/Input.astro";
+
 import Link from "../ui/Link.astro";
 ---
 
@@ -33,27 +32,6 @@ import Link from "../ui/Link.astro";
       </Link>
     </div>
 
-    <form
-      action="https://formsubmit.co/alvaro.alarcon.bermejo@gmail.com"
-      method="POST"
-      class="flex flex-col gap-5 mt-5"
-      action=""
-    >
-      {
-        CONTACT_FORM_INPUT.map((input) => {
-          return (
-            <div class="flex flex-col gap-2">
-              <label class="text-on-tertiary font-bold md:text-2xl" for={input.name}>
-                {input.label}
-              </label>
-              <Input inputName={input.name} type={input.type} placeholder={input.placeholder} />
-            </div>
-          );
-        })
-      }
-      <input type="text" name="_honey" style="display:none" />
-
-      <Button type="submit" variant="on-secondary" text="Send" />
-    </form>
+    <ContactForm />
   </div>
 </section>
