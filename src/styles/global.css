@@ -26,6 +26,7 @@ body {
     --box-shadow-on-primary: 4px 4px 0px var(--color-on-primary);
     --box-shadow-on-secondary: 4px 4px 0px var(--color-on-secondary);
     --box-shadow-on-tertiary: 4px 4px 0px var(--color-on-tertiary);
+    --box-shadow-error: 4px 4px 0px #9B2C2C;
 
     --animate-float: float 3s ease-in-out infinite;
 
@@ -71,4 +72,12 @@ body {
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
+  }
+
+  .input-error {
+    box-shadow: var(--box-shadow-error);
+  }
+
+  .input.error :focus {
+    outline: 2px solid #9B2C2C;
   }

@@ -17,14 +17,21 @@ import Input from "./Input.astro";
           <label class="text-on-tertiary font-bold md:text-2xl" for={input.name}>
             {input.label}
           </label>
-          <Input inputName={input.name} type={input.type} placeholder={input.placeholder} />
+          <Input
+            id={input.name}
+            inputName={input.name}
+            type={input.type}
+            placeholder={input.placeholder}
+          />
+          <ul
+            class="error-messages p-4 bg-on-secondary font-bold text-red-950 text-sm hidden"
+            id={`${input.name}-ul`}
+          />
         </div>
       );
     })
   }
   <input type="text" name="_honey" style="display:none" />
-
-  <ul id="errors" class="p-4 bg-on-secondary font-bold text-red-950 text-sm hidden"></ul>
 
   <Button type="submit" variant="on-secondary" text="Send" />
 </form>
@@ -33,24 +40,43 @@ import Input from "./Input.astro";
   import { contactSchema } from "../../schemas/contactSchema";
 
   const form = document.getElementById("contactForm") as HTMLFormElement;
-  const errors = document.getElementById("errors");
+  const errorMessagesContainers = document.querySelectorAll<HTMLElement>(".error-messages");
+  errorMessagesContainers.forEach((container) => (container.innerHTML = ""));
+  document.querySelectorAll("input").forEach((input) => input.classList.remove("input-error"));
 
-  if (form && errors) {
+  if (form && errorMessagesContainers) {
     form.addEventListener("submit", (e) => {
-      errors.innerHTML = "";
-      errors.style.display = "hidden";
-      const formData = Object.fromEntries(new FormData(form));
+      document.querySelectorAll("input").forEach((input) => input.classList.remove("input-error"));
 
+      errorMessagesContainers.forEach((container) => {
+        container.innerHTML = "";
+        container.style.display = "none";
+      });
+
+      const formData = Object.fromEntries(new FormData(form));
       const result = contactSchema.safeParse(formData);
 
       if (!result.success) {
         e.preventDefault();
-        errors.style.display = "block";
-        result.error.issues.forEach((issue) => {
-          const li = document.createElement("li");
-          li.textContent = issue.message;
-          errors.appendChild(li);
+        const { fieldErrors } = result.error.flatten();
+
+        Object.entries(fieldErrors).forEach(([field, messages]) => {
+          const input = document.getElementById(field);
+          if (input) {
+            input.classList.add("input-error");
+          }
+
+          const ul = document.getElementById(`${field}-ul`);
+          if (ul) {
+            messages.forEach((msg) => {
+              const li = document.createElement("li");
+              li.textContent = msg;
+              ul.appendChild(li);
+            });
+            ul.style.display = "block";
+          }
         });
+
         return;
       } else {
         console.log("Validation passed, form will submit");

@@ -1,10 +1,19 @@
 ---
-const { type = "text", placeholder, value, onChange, required = false, inputName } = Astro.props;
+const {
+  type = "text",
+  placeholder,
+  value,
+  onChange,
+  required = false,
+  inputName,
+  id,
+} = Astro.props;
 ---
 
 {
   type === "textarea" ? (
     <textarea
+      id={id}
       name={inputName}
       class={`bg-on-secondary p-2 shadow-(--box-shadow-primary) placeholder:text-sm md:placeholder:text-xl md:p-4`}
       placeholder={placeholder}
@@ -15,6 +24,7 @@ const { type = "text", placeholder, value, onChange, required = false, inputName
     />
   ) : (
     <input
+      id={id}
       name={inputName}
       class={`bg-on-secondary p-2 shadow-(--box-shadow-primary) placeholder:text-sm md:placeholder:text-xl md:p-4`}
       type={type}
