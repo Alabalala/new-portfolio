@@ -41,5 +41,5 @@ The style is **neobrutalist** with some moder touches. I wanted something that f
 
 ## Sugestions?
 
-I'm always open to a new ideas, and if you think something can be improved, please let me know! 
+I'm always open to new ideas, and if you think something can be improved, please let me know! 
 
