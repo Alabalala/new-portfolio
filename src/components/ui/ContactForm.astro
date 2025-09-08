@@ -24,7 +24,7 @@ import Input from "./Input.astro";
             placeholder={input.placeholder}
           />
           <ul
-            class="error-messages p-4 bg-on-secondary font-bold text-red-950 text-sm hidden"
+            class="error-messages p-4 bg-on-secondary font-bold text-red-950 text-xs hidden"
             id={`${input.name}-ul`}
           />
         </div>
@@ -78,6 +78,7 @@ Have a nice day!
           if (ul) {
             messages.forEach((msg) => {
               const li = document.createElement("li");
+              li.classList.add("p-2");
               li.textContent = msg;
               ul.appendChild(li);
             });
