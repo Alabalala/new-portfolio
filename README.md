@@ -1,46 +1,45 @@
-# Astro Starter Kit: Basics
+## 👋 Intro
 
-```sh
-npm create astro@latest -- --template basics
-```
+Hi! My name is Álvaro. I'm a self-taught web developer on the road to becoming the best at JavaScript, React, Astro and Next.js. This repo contains my personal portfolio website.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-## 🚀 Project Structure
+## 🖼️ Live demo
 
-Inside of your Astro project, you'll see the following folders and files:
+Check out the live site at [alvaroalarcon.com](https://www.alvaroalarcon.com/)
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+---
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🛠️ Tech stack
 
-## 🧞 Commands
+- **Frontend:** HTML, CSS, Tailwind, JavaScript, Astro
+- **Deployment:** Vercel
+- **Extras:** Form handling with FormSubmit
 
-All commands are run from the root of the project, from a terminal:
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 🚀 Features
 
-## 👀 Want to learn more?
+- Responsive design for mobile and desktop
+- Contact form with autoresponse
+- Smooth scroll and subtle animations
+- Light and dark theme toggle (if applicable)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+
+## 🎨 Design
+
+Something about me, I love designing things from scratch.
+
+Here you can find some illustrations made by me on Figma. 
+
+I chose this particular color palette to reflect my personality and style.
+
+The style is **neobrutalist** with some moder touches. I wanted something that fel modern and clean but at the same time playful and nice-to-look-at.
+
+---
+
+## Sugestions?
+
+I'm always open to a new ideas, and if you think something can be improved, please let me know! 
+
