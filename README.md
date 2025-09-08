@@ -14,7 +14,7 @@ Check out the live site at [alvaroalarcon.com](https://www.alvaroalarcon.com/)
 
 - **Frontend:** HTML, CSS, Tailwind, JavaScript, Astro
 - **Deployment:** Vercel
-- **Extras:** Form handling with FormSubmit
+- **Extras:** Form handling with FormSubmit and validation with Zod 
 
 ---
 
