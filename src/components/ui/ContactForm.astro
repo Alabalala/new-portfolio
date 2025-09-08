@@ -5,7 +5,7 @@ import Input from "./Input.astro";
 ---
 
 <form
-  action="https://formsubmit.co/alvaro.alarcon.bermejo@gmail.com"
+  action="https://formsubmit.co/5f1b0f033451bf1c36e91763c86db3c2"
   id="contactForm"
   method="POST"
   class="flex flex-col gap-5 mt-5"
@@ -32,7 +32,15 @@ import Input from "./Input.astro";
     })
   }
   <input type="text" name="_honey" style="display:none" />
-
+  <input
+    type="hidden"
+    name="_autoresponse"
+    value="Hi! Thanks for reaching out.
+I'll take a look at your message as soon as possible.
+Have a nice day!
+Álvaro"
+  />
+  <input type="hidden" name="_next" value="https://www.alvaroalarcon.com/thanks" />
   <Button type="submit" variant="on-secondary" text="Send" />
 </form>
 
