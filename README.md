@@ -20,10 +20,9 @@ Check out the live site at [alvaroalarcon.com](https://www.alvaroalarcon.com/)
 
 ## 🚀 Features
 
-- Responsive design for mobile and desktop
-- Contact form with autoresponse
+- Responsive UI mobile firts
+- Contact form with autoresponse and Zod validation
 - Smooth scroll and subtle animations
-- Light and dark theme toggle (if applicable)
 
 ---
 
@@ -43,3 +42,6 @@ The style is **neobrutalist** with some moder touches. I wanted something that f
 
 I'm always open to new ideas, and if you think something can be improved, please let me know! 
 
+## License
+
+This project is licensed under the MIT License — feel free to reuse the code as long as you mention me.
