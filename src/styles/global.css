@@ -74,10 +74,20 @@ body {
     font-display: swap;
   }
 
+  input,
+  textarea {
+    font-family: "Open Sans", sans-serif;
+        
+  }
+
+  input:focus, textarea:focus {
+    outline: 2px solid var(--color-primary);
+  }
+
   .input-error {
     box-shadow: var(--box-shadow-error);
   }
 
-  .input.error :focus {
+  .input-error:focus {
     outline: 2px solid #9B2C2C;
   }
