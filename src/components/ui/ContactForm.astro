@@ -50,7 +50,8 @@ Have a nice day!
   const form = document.getElementById("contactForm") as HTMLFormElement;
   const errorMessagesContainers = document.querySelectorAll<HTMLElement>(".error-messages");
   errorMessagesContainers.forEach((container) => (container.innerHTML = ""));
-  document.querySelectorAll("input").forEach((input) => input.classList.remove("input-error"));
+  const inputs = document.querySelectorAll("input, textarea") as NodeListOf<HTMLInputElement>;
+  inputs.forEach((input) => input.classList.remove("input-error"));
 
   if (form && errorMessagesContainers) {
     form.addEventListener("submit", (e) => {
@@ -87,9 +88,34 @@ Have a nice day!
         });
 
         return;
-      } else {
-        console.log("Validation passed, form will submit");
       }
     });
   }
+
+  inputs.forEach((input) => {
+    input.addEventListener("blur", () => {
+      const currentInputValidation = contactSchema.pick({ [input.name]: true } as any);
+      const result = currentInputValidation.safeParse({ [input.name]: input.value });
+      if (!result.success) {
+        const message = result.error.errors[0].message;
+        input.classList.add("input-error");
+        const ul = document.getElementById(`${input.name}-ul`);
+        if (ul) {
+          ul.innerHTML = "";
+          const li = document.createElement("li");
+          li.classList.add("p-2");
+          li.textContent = message;
+          ul.appendChild(li);
+          ul.style.display = "block";
+        }
+      } else {
+        input.classList.remove("input-error");
+        const ul = document.getElementById(`${input.name}-ul`);
+        if (ul) {
+          ul.innerHTML = "";
+          ul.style.display = "none";
+        }
+      }
+    });
+  });
 </script>
