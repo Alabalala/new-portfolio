@@ -39,5 +39,10 @@ export default {
       autoresponse:
         "Hi! Thanks for reaching out. I'll take a look at your message as soon as possible. Have a nice day! Álvaro",
     },
+    validation: {
+      nameMinLength: "❗Name should be longer than 3 characters.",
+      emailInvalid: "❗Invalid email address",
+      messageMinLength: "❗Message must be longer than 10 characters",
+    },
   },
 };

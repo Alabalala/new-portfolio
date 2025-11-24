@@ -39,5 +39,10 @@ export default {
       autoresponse:
         "¡Hola! Gracias por ponerte en contacto. Revisaré tu mensaje lo antes posible. ¡Que tengas un buen día! Álvaro",
     },
+    validation: {
+      nameMinLength: "❗El nombre debe tener más de 3 caracteres.",
+      emailInvalid: "❗Dirección de correo electrónico inválida",
+      messageMinLength: "❗El mensaje debe tener más de 10 caracteres",
+    },
   },
 };

@@ -38,8 +38,19 @@ const { t } = Astro.props;
   <Button type="submit" variant="on-secondary" text={t.contact.form.CTA} />
 </form>
 
+<script define:vars={{ validationMessages: t.contact.validation }}>
+  window.__VALIDATION_MESSAGES__ = validationMessages;
+</script>
+
 <script>
   import { contactSchema } from "../../schemas/contactSchema";
+
+  declare global {
+    interface Window {
+      __VALIDATION_MESSAGES__: any;
+    }
+  }
+
   const form = document.getElementById("contactForm") as HTMLFormElement;
   const errorMessagesContainers = document.querySelectorAll<HTMLElement>(".error-messages");
   errorMessagesContainers.forEach((container) => (container.innerHTML = ""));
@@ -70,10 +81,10 @@ const { t } = Astro.props;
 
           const ul = document.getElementById(`${field}-ul`);
           if (ul) {
-            messages.forEach((msg) => {
+            messages.forEach((msgKey) => {
               const li = document.createElement("li");
               li.classList.add("p-2");
-              li.textContent = msg;
+              li.textContent = window.__VALIDATION_MESSAGES__[msgKey] || msgKey;
               ul.appendChild(li);
             });
             ul.style.display = "block";
@@ -90,7 +101,8 @@ const { t } = Astro.props;
       const currentInputValidation = contactSchema.pick({ [input.name]: true } as any);
       const result = currentInputValidation.safeParse({ [input.name]: input.value });
       if (!result.success) {
-        const message = result.error.errors[0].message;
+        const messageKey = result.error.errors[0].message;
+        const message = window.__VALIDATION_MESSAGES__[messageKey] || messageKey;
         input.classList.add("input-error");
         const ul = document.getElementById(`${input.name}-ul`);
         if (ul) {
