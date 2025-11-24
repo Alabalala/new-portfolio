@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from "astro:content";
 
 export const collections = {
   projects: defineCollection({
@@ -8,7 +8,8 @@ export const collections = {
       color: z.string().optional(),
       tags: z.array(z.string()).optional(),
       link: z.string().url().optional(),
-         date: z.date(),
+      date: z.date(),
+      locale: z.string(),
     }),
   }),
 };
