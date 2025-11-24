@@ -1,0 +1,17 @@
+---
+import AboutMe from "../../components/sections/AboutMe.astro";
+import Contact from "../../components/sections/Contact.astro";
+import Footer from "../../components/sections/Footer.astro";
+import Intro from "../../components/sections/Intro.astro";
+import Projects from "../../components/sections/Projects.astro";
+import Layout from "../../layouts/Layout.astro";
+import es from "../../i18n/es.ts";
+---
+
+<Layout>
+  <Intro t={es} />
+  <AboutMe t={es} />
+  <Projects t={es} locale="es" />
+  <Contact t={es} />
+  <Footer t={es} />
+</Layout>
