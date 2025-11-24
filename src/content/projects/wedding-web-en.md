@@ -5,6 +5,7 @@ color: "#3a110d"
 tags: ["React", "NextJS", "Tailwind", "Firebase", "TypeScript", "Playwright"]
 link: "https://bodabelenycarlos.netlify.app/"
 date: 2025-07-01
+locale: "en"
 ---
 
 Website for a wedding event.

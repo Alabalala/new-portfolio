@@ -5,6 +5,7 @@ color: "#3D4E3C"
 tags: ["React", "NextJS", "SASS", "Firebase", "Playwright"]
 link: "https://bodagregoymiriam.netlify.app/"
 date: 2025-06-01
+locale: "en"
 ---
 
 Another website for a wedding event.

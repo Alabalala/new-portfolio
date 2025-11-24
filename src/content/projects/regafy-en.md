@@ -16,6 +16,7 @@ tags:
   ]
 link: "https://regafy.netlify.app/"
 date: 2025-11-01
+locale: "en"
 ---
 
 Social media web app for sharing gift wish lists with friends.
