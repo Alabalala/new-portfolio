@@ -1,11 +1,36 @@
 ---
 import Link from "../ui/Link.astro";
+const { t } = Astro.props;
 ---
 
 <footer
   class="bg-tertiary w-full flex flex-col items-center justify-center gap-2 p-10 shadow-[inset_0px_5px_6px_0px_rgba(0,_0,_0,_0.1)]"
   py-5
 >
-  <p class="text-on-tertiary text-center">Created with ❤️ by Álvaro Alarcón</p>
-  <Link variant="simple-link" text="Back to top" href="#top" class="self-center" />
+  <p class="text-on-tertiary text-center">{t.footer.madeBy}</p>
+  <Link variant="simple-link" text={t.footer.backToTop} href="#top" class="self-center" />
+  <div class="flex flex-row gap-2 items-center justify-center">
+    <div class="flex flex-row border-2 border-on-tertiary p-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="30" viewBox="0 0 320 160">
+        <rect width="320" height="160" fill="#012169"></rect>
+        <path d="M0 0 L320 160 M320 0 L0 160" stroke="#fff" stroke-width="32"></path>
+        <path d="M0 0 L320 160 M320 0 L0 160" stroke="#C8102E" stroke-width="20"></path>
+        <rect x="140" width="40" height="160" fill="#fff"></rect>
+        <rect y="60" width="320" height="40" fill="#fff"></rect>
+        <rect x="150" width="20" height="160" fill="#C8102E"></rect>
+        <rect y="70" width="320" height="20" fill="#C8102E"></rect>
+      </svg>
+
+      <Link variant="simple-link" text="EN" href="/" class="self-center" />
+    </div>
+    <div class="flex flex-row border-2 border-on-tertiary p-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="30" viewBox="0 0 320 200">
+        <rect width="320" height="200" fill="#AA151B"></rect>
+        <rect y="50" width="320" height="100" fill="#F1BF00"></rect>
+        <rect y="0" width="320" height="50" fill="#AA151B"></rect>
+        <rect y="150" width="320" height="50" fill="#AA151B"></rect>
+      </svg>
+      <Link variant="simple-link" text="ES" href="/es" class="self-center" />
+    </div>
+  </div>
 </footer>
