@@ -6,6 +6,8 @@ import HeroTitle from "../ui/HeroTitle.astro";
 import Link from "../ui/Link.astro";
 import MeSVG from "../ui/MeSVG.astro";
 import Text from "../ui/Text.astro";
+
+const { t } = Astro.props;
 ---
 
 <section
@@ -16,8 +18,10 @@ import Text from "../ui/Text.astro";
 
   <div class="flex flex-col gap-5 max-w-[700px]">
     <div>
-      <p class="text-white font-bebas text-4xl md:text-5xl lg:text-6xl">LET'S NOT WASTE TIME</p>
-      <Text>If you’re looking for a web dev who knows...</Text>
+      <p class="text-white font-bebas text-4xl md:text-5xl lg:text-6xl uppercase">
+        {t.intro.title}
+      </p>
+      <Text>{t.intro.subtitle}</Text>
     </div>
 
     <div class="flex gap-2 flex-wrap">
@@ -33,11 +37,11 @@ import Text from "../ui/Text.astro";
     <MeSVG />
     <div class="flex flex-col gap-5">
       <p class="text-on-primary text-center font-bebas text-3xl md:text-4xl lg:text-6xl">
-        I'M YOUR GUY!
+        {t.intro.punchline}
       </p>
       <div class="flex flex-col gap-5 animate-pulse">
-        <Link href="#about-me" variant="secondary" text="Learn more" />
-        <Link href="#contact" variant="secondary-reversed" text="Contact" />
+        <Link href="#about-me" variant="secondary" text={t.intro.buttons.learnMore} />
+        <Link href="#contact" variant="secondary-reversed" text={t.intro.buttons.contactMe} />
       </div>
     </div>
   </div>
