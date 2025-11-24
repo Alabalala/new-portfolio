@@ -3,6 +3,7 @@ import ContactForm from "../ui/ContactForm.astro";
 import H2 from "../ui/H2.astro";
 
 import Link from "../ui/Link.astro";
+const { t } = Astro.props;
 ---
 
 <div
@@ -12,7 +13,7 @@ import Link from "../ui/Link.astro";
 </div>
 <section class="bg-secondary w-full">
   <div class="max-w-[800px] mx-auto flex flex-col gap-5 py-20 px-10">
-    <H2>CONTACT</H2>
+    <H2>{t.contact.title}</H2>
 
     <div class="flex gap-10 justify-center">
       <Link href="https://www.linkedin.com/in//">
@@ -32,6 +33,6 @@ import Link from "../ui/Link.astro";
       </Link>
     </div>
 
-    <ContactForm />
+    <ContactForm t={t} />
   </div>
 </section>
