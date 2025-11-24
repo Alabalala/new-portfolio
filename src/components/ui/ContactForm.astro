@@ -2,6 +2,7 @@
 import { CONTACT_FORM_INPUT } from "../../constants/contactForm";
 import Button from "./Button.astro";
 import Input from "./Input.astro";
+const { t } = Astro.props;
 ---
 
 <form
@@ -15,13 +16,13 @@ import Input from "./Input.astro";
       return (
         <div class="flex flex-col gap-2">
           <label class="text-on-tertiary font-bold md:text-2xl" for={input.name}>
-            {input.label}
+            {t.contact.form[input.labelKey]}
           </label>
           <Input
             id={input.name}
             inputName={input.name}
             type={input.type}
-            placeholder={input.placeholder}
+            placeholder={t.contact.form[input.placeholderKey]}
           />
           <ul
             class="error-messages p-4 bg-on-secondary font-bold text-red-950 text-xs hidden"
@@ -32,21 +33,13 @@ import Input from "./Input.astro";
     })
   }
   <input type="text" name="_honey" style="display:none" />
-  <input
-    type="hidden"
-    name="_autoresponse"
-    value="Hi! Thanks for reaching out.
-I'll take a look at your message as soon as possible.
-Have a nice day!
-Álvaro"
-  />
+  <input type="hidden" name="_autoresponse" value={t.contact.form.autoresponse} />
   <input type="hidden" name="_next" value="https://www.alvaroalarcon.com/thanks" />
-  <Button type="submit" variant="on-secondary" text="Send" />
+  <Button type="submit" variant="on-secondary" text={t.contact.form.CTA} />
 </form>
 
 <script>
   import { contactSchema } from "../../schemas/contactSchema";
-
   const form = document.getElementById("contactForm") as HTMLFormElement;
   const errorMessagesContainers = document.querySelectorAll<HTMLElement>(".error-messages");
   errorMessagesContainers.forEach((container) => (container.innerHTML = ""));
