@@ -2,14 +2,28 @@
 title: "Regafy"
 image: "regafy"
 color: "#D6C2E0"
-tags: ["React", "NextJS", "SASS", "Supabase"]
+tags:
+  [
+    "React",
+    "NextJS",
+    "TypeScript",
+    "Tailwind",
+    "Supabase",
+    "React Hook Form",
+    "Zod",
+    "Zustand",
+    "next-intl",
+  ]
 link: "https://regafy.netlify.app/"
-date: 2025-04-01
+date: 2025-11-01
 ---
 
-Web app for a social network, where users can upload wishlists and gift ideas for themselves or friends.
+Social media web app for sharing gift wish lists with friends.
 
-It has profiles, groups, events (with auto secret santa assigments!), messages and friend requests, and gifts can be assigned to people.
+You can share gifts, add friends, create events, comments, questions, secret gift exchanges and much more!
 
-You can sign up for free, but if you don't want to do that, reach out and I can share a dummy account with you.
+The app has i18n support and dark mode.
 
+I used Supabase for authentication, storage and database.
+
+You need to sign up to use the app, but you can't also contact me for a live demo or a dummy account.
