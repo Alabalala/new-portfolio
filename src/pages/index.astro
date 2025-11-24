@@ -6,15 +6,13 @@ import Intro from "../components/sections/Intro.astro";
 import Projects from "../components/sections/Projects.astro";
 
 import Layout from "../layouts/Layout.astro";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import en from "../i18n/en.ts";
 ---
 
 <Layout>
-  <Intro />
-  <AboutMe />
-  <Projects />
-  <Contact />
-  <Footer />
+  <Intro t={en} />
+  <AboutMe t={en} />
+  <Projects t={en} locale="en" />
+  <Contact t={en} />
+  <Footer t={en} />
 </Layout>
