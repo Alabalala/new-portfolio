@@ -3,7 +3,7 @@ import Badge from "./Badge.astro";
 import Link from "./Link.astro";
 import Text from "./Text.astro";
 
-const { project } = Astro.props;
+const { project, t } = Astro.props;
 const { Content } = await project.render();
 ---
 
@@ -29,7 +29,7 @@ const { Content } = await project.render();
       <Content entry={project} />
     </div>
     <div class="flex justify-center">
-      <Link text="Visit website" href={project.data.link} variant="secondary" />
+      <Link text={t.projects.visitWebsite} href={project.data.link} variant="secondary" />
     </div>
   </div>
 </article>
