@@ -1,7 +1,7 @@
 export default {
   about: {
     title: "SOBRE MÍ",
-    p1: "Soy un desarrollador web junior bilingüe con 1 año de experiencia.",
+    p1: "Soy un desarrollador web bilingüe con 1 año de experiencia.",
     p2: "Me encanta crear interfaces limpias, intuitivas y equilibradas entre diseño y funcionalidad. Siempre empiezo en Figma, donde prototipo y experimento antes de convertir mis ideas en páginas web creadas con React, Next.js y Astro.",
     p3: "Todo lo que ves en esta página, incluidas las ilustraciones, lo he diseñado yo mismo con Figma.",
   },
