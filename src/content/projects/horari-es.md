@@ -27,4 +27,4 @@ Para construir este proyecto, utilice un stack de desarrollo next-gen con TRAE (
 
 ¿Mi objetivo? Demostrar como la IA moderna puede multiplicar la eficiencia para un desarrollador de software.
 
-Puedes leer el [readme](https://github.com/Alabalala/README.md) del proyecto para más info.
+Puedes leer el [readme](https://github.com/Alabalala/horari/README.md) del proyecto para más info.
