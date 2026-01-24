@@ -27,4 +27,4 @@ To build this project, I used a next-gen development stack led by TRAE (AI-nativ
 
 My goal? Demonstrate how modern AI can act as a force multiplier for a software developer.
 
-Here's the [readme](https://github.com/Alabalala/README.md) for the project where you can find out more.
+Here's the [readme](https://github.com/Alabalala/horari/README.md) for the project where you can find out more.
