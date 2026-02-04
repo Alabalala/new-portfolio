@@ -8,6 +8,8 @@ export const collections = {
       color: z.string().optional(),
       tags: z.array(z.string()).optional(),
       link: z.string().url().optional(),
+      summary: z.string().optional(),
+      blog: z.boolean().optional(),
       date: z.date(),
       locale: z.string(),
     }),

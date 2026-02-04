@@ -1,0 +1,70 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Badge from "../../components/ui/Badge.astro";
+import Link from "../../components/ui/Link.astro";
+import Layout from "../../layouts/Layout.astro";
+
+type Project = CollectionEntry<"projects">;
+
+export async function getStaticPaths() {
+  const projects: Project[] = await getCollection(
+    "projects",
+    (p: Project) => p.data.locale === "en" && p.data.blog
+  );
+
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  })) satisfies { params: { slug: string }; props: { project: Project } }[];
+}
+
+const { project } = Astro.props as { project: Project };
+const { Content } = await project.render();
+const formattedDate = new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(
+  project.data.date
+);
+---
+
+<Layout>
+  <section class="project-blog bg-primary min-h-screen px-6 md:px-10 py-10 md:py-16">
+    <div class="mx-auto flex w-full max-w-4xl flex-col gap-6">
+      <Link href="/#projects" variant="simple-link" text="Back to projects" />
+
+      <article class="bg-on-tertiary shadow-(--box-shadow-tertiary)">
+        <div class="py-6" style={`background-color: ${project.data.color ?? "var(--color-secondary)"}`}>
+          <img
+            class="mx-auto h-16"
+            src={`/logos/${project.data.image}.webp`}
+            alt={`Logo de ${project.data.title}`}
+          />
+        </div>
+
+        <div class="flex flex-col gap-6 p-6 md:p-10 text-tertiary">
+          <div class="flex flex-col gap-2">
+            <p class="text-sm uppercase tracking-[0.2em] text-secondary">Case study</p>
+            <h1 class="font-bebas text-4xl md:text-6xl text-tertiary">{project.data.title}</h1>
+            <p class="text-sm md:text-base text-tertiary/80">{formattedDate}</p>
+          </div>
+
+          {project.data.tags && (
+            <div class="flex flex-wrap gap-2">
+              {project.data.tags.map((tag: string) => (
+                <Badge text={tag} />
+              ))}
+            </div>
+          )}
+
+          <div class="space-y-5 text-base md:text-xl md:leading-8 text-tertiary">
+            <Content entry={project} />
+          </div>
+
+          {project.data.link && (
+            <div class="flex flex-wrap gap-3">
+              <Link text="Visit website" href={project.data.link} variant="secondary" />
+            </div>
+          )}
+        </div>
+      </article>
+    </div>
+  </section>
+</Layout>

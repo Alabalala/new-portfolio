@@ -24,6 +24,7 @@ export default {
   projects: {
     title: "PROYECTOS",
     visitWebsite: "VISITAR WEB",
+    readBlog: "SABER MÁS",
   },
 
   contact: {
