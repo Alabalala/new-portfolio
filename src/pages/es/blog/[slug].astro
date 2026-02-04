@@ -1,0 +1,59 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Badge from "../../../components/ui/Badge.astro";
+import Link from "../../../components/ui/Link.astro";
+import Layout from "../../../layouts/Layout.astro";
+
+type Blog = CollectionEntry<"blogs">;
+
+export async function getStaticPaths() {
+  const blogs = await getCollection("blogs");
+
+  return blogs.map((blog) => ({
+    params: { slug: blog.slug },
+    props: { blog },
+  })) satisfies { params: { slug: string }; props: { blog: Blog } }[];
+}
+
+const { blog } = Astro.props as { blog: Blog };
+const { Content } = await blog.render();
+const formattedDate = new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).format(
+  blog.data.date
+);
+---
+
+<Layout>
+  <section class="bg-primary min-h-screen px-6 md:px-10 py-10 md:py-16">
+    <div class="mx-auto flex w-full max-w-4xl flex-col gap-6">
+      <Link href="/es/#blogs" variant="simple-link" text="Volver a blogs" />
+
+      <article class="bg-on-tertiary shadow-(--box-shadow-tertiary)">
+        {blog.data.cover && (
+          <div class="py-6" style={`background-color: var(--color-secondary)`}>
+            <img class="mx-auto h-32 object-contain" src={blog.data.cover} alt={blog.data.title} />
+          </div>
+        )}
+
+        <div class="flex flex-col gap-6 p-6 md:p-10 text-tertiary">
+          <div class="flex flex-col gap-2">
+            <p class="text-sm uppercase tracking-[0.2em] text-secondary">Blog</p>
+            <h1 class="font-bebas text-4xl md:text-6xl text-tertiary">{blog.data.title}</h1>
+            <p class="text-sm md:text-base text-tertiary/80">{formattedDate}</p>
+          </div>
+
+          {blog.data.tags && (
+            <div class="flex flex-wrap gap-2">
+              {blog.data.tags.map((tag: string) => (
+                <Badge text={tag} />
+              ))}
+            </div>
+          )}
+
+          <div class="space-y-5 text-base md:text-xl md:leading-8 text-tertiary">
+            <Content entry={blog} />
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</Layout>

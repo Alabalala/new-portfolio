@@ -14,4 +14,13 @@ export const collections = {
       locale: z.string(),
     }),
   }),
+  blogs: defineCollection({
+    schema: z.object({
+      title: z.string(),
+      summary: z.string(),
+      date: z.date(),
+      cover: z.string().optional(),
+      locale: z.string().optional(),
+    }),
+  }),
 };

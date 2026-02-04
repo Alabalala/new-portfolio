@@ -26,6 +26,10 @@ export default {
     visitWebsite: "VISITAR WEB",
     readBlog: "SABER MÁS",
   },
+  blogs: {
+    title: "BLOG",
+    readMore: "LEER POST",
+  },
 
   contact: {
     title: "CONTACTO",
