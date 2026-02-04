@@ -16,8 +16,8 @@ const formattedDate = new Intl.DateTimeFormat(locale === "es" ? "es-ES" : "en-US
       <div class="h-1 w-10 bg-secondary"></div>
     </div>
     {blog.data.cover && (
-      <div class="py-4" style={`background-color: var(--color-secondary)`}>
-        <img class="h-24 mx-auto object-contain" src={blog.data.cover} alt={blog.data.title} />
+      <div class="" style={`background-color: var(--color-secondary)`}>
+        <img class="h-full object-cover" src={blog.data.cover} alt={blog.data.title} />
       </div>
     )}
     <div class="bg-on-tertiary p-5 flex flex-col gap-4">

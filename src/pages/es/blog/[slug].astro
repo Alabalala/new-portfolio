@@ -28,8 +28,8 @@ const formattedDate = new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).fo
 
       <article class="bg-on-tertiary shadow-(--box-shadow-tertiary)">
         {blog.data.cover && (
-          <div class="py-6" style={`background-color: var(--color-secondary)`}>
-            <img class="mx-auto h-32 object-contain" src={blog.data.cover} alt={blog.data.title} />
+          <div>
+            <img class="h-full object-cover" src={blog.data.cover} alt={blog.data.title} />
           </div>
         )}
 

@@ -1,14 +1,13 @@
 ---
 import Badge from "./Badge.astro";
 import Link from "./Link.astro";
-import Text from "./Text.astro";
 
 const { project, t, locale } = Astro.props;
 const { Content } = await project.render();
 
 const blogHref = locale === "es" ? `/es/projects/${project.slug}` : `/projects/${project.slug}`;
 const summaryParagraphs = project.data.summary
-  ? project.data.summary.split("\n\n").map((paragraph) => paragraph.trim()).filter(Boolean)
+  ? project.data.summary.split("\n\n").map((paragraph: string) => paragraph.trim()).filter(Boolean)
   : null;
 ---
 
@@ -33,7 +32,7 @@ const summaryParagraphs = project.data.summary
     {
       summaryParagraphs ? (
         <div class="md:text-xl md:leading-8 space-y-5">
-          {summaryParagraphs.map((paragraph) => (
+          {summaryParagraphs.map((paragraph: string) => (
             <p>{paragraph}</p>
           ))}
         </div>
