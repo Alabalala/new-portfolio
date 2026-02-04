@@ -1,6 +1,5 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
-import Badge from "../../../components/ui/Badge.astro";
+import { getCollection, type CollectionEntry } from "astro:content";;
 import Link from "../../../components/ui/Link.astro";
 import Layout from "../../../layouts/Layout.astro";
 
@@ -40,14 +39,6 @@ const formattedDate = new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).fo
             <h1 class="font-bebas text-4xl md:text-6xl text-tertiary">{blog.data.title}</h1>
             <p class="text-sm md:text-base text-tertiary/80">{formattedDate}</p>
           </div>
-
-          {blog.data.tags && (
-            <div class="flex flex-wrap gap-2">
-              {blog.data.tags.map((tag: string) => (
-                <Badge text={tag} />
-              ))}
-            </div>
-          )}
 
           <div class="space-y-5 text-base md:text-xl md:leading-8 text-tertiary">
             <Content entry={blog} />
