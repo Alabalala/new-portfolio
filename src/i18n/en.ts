@@ -24,6 +24,11 @@ export default {
   projects: {
     title: "PROJECTS",
     visitWebsite: "VISIT WEBSITE",
+    readBlog: "READ MORE",
+  },
+  blogs: {
+    title: "BLOG",
+    readMore: "READ POST",
   },
 
   contact: {
