@@ -1,38 +1,44 @@
 export const INTRO_BAGDES = [
-    {
-        text: "JAVASCRIPT",
-    },
-    {
-        text: "REACT",
-    },
-    {
-        text: "ASTRO",
-    },
-    {
-        text: "TYPESCRIPT",
-    },
-    {
-        text: "NEXTJS",
-    },
-    {
-        text: "TAILWIND",
-    },
-        {
-        text: "SASS",
-    },
-    {
-        text: "FIGMA",
-    },
-    {
-        text: "GIT",
-    },
-    {
-        text: "GITHUB",
-    },
-        {
-        text: "UX",
-    },
-    {
-        text: "COPYWRITING",
-    },
+  {
+    text: "JAVASCRIPT",
+  },
+  {
+    text: "REACT",
+  },
+  {
+    text: "ASTRO",
+  },
+  {
+    text: "TYPESCRIPT",
+  },
+  {
+    text: "NEXTJS",
+  },
+  {
+    text: "TAILWIND",
+  },
+  {
+    text: "AGILE",
+  },
+  {
+    text: "SCRUM",
+  },
+  {
+    text: "SASS",
+  },
+  {
+    text: "FIGMA",
+  },
+  {
+    text: "GIT",
+  },
+  {
+    text: "GITHUB",
+  },
+  {
+    text: "UX",
+  },
+  {
+    text: "COPYWRITING",
+  },
 ];
