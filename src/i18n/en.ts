@@ -26,6 +26,9 @@ export default {
     visitWebsite: "VISIT WEBSITE",
     readBlog: "READ MORE",
   },
+  digitalBadges: {
+    title: "DIGITAL BADGES",
+  },
   blogs: {
     title: "BLOG",
     readMore: "READ POST",
