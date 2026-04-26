@@ -1,0 +1,21 @@
+---
+import H2 from "../ui/H2.astro";
+import Link from "../ui/Link.astro";
+
+const { t, locale } = Astro.props;
+---
+
+<section
+  id="Digital badges"
+  class="bg-secondary w-full flex flex-col items-space-between justify-between items-center gap-5 px-10 py-10 md:py-20 shadow-[inset_0px_5px_6px_0px_rgba(0,0,0,0.1)]"
+>
+  <H2>{t.digitalBadges.title}</H2>
+  <div class="flex flex-row justify-center items-center flex-wrap gap-5">
+    <a
+      class="w-30"
+      href="https://www.credly.com/badges/0dac760e-dfed-4d1a-b728-d11d135eb8df/public_url"
+    >
+      <img src="/digitalBadges/Agile-scrum.png" alt="Digital badge of Agile Scrum by Credly" />
+    </a>
+  </div>
+</section>
