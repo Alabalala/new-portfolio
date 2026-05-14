@@ -5,12 +5,7 @@ import Input from "./Input.astro";
 const { t } = Astro.props;
 ---
 
-<form
-  action="https://formsubmit.co/5f1b0f033451bf1c36e91763c86db3c2"
-  id="contactForm"
-  method="POST"
-  class="flex flex-col gap-5 mt-5"
->
+<form id="contactForm" class="flex flex-col gap-5 mt-5">
   {
     CONTACT_FORM_INPUT.map((input) => {
       return (
@@ -32,9 +27,12 @@ const { t } = Astro.props;
       );
     })
   }
-  <input type="text" name="_honey" style="display:none" />
-  <input type="hidden" name="_autoresponse" value={t.contact.form.autoresponse} />
-  <input type="hidden" name="_next" value="https://www.alvaroalarcon.com/thanks" />
+  <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+  <div
+    id="global-error"
+    class="error-messages p-4 bg-on-secondary font-bold text-red-950 text-xs hidden mb-4"
+  >
+  </div>
   <Button type="submit" variant="on-secondary" text={t.contact.form.CTA} />
 </form>
 
@@ -58,7 +56,8 @@ const { t } = Astro.props;
   inputs.forEach((input) => input.classList.remove("input-error"));
 
   if (form && errorMessagesContainers) {
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
       document.querySelectorAll("input").forEach((input) => input.classList.remove("input-error"));
 
       errorMessagesContainers.forEach((container) => {
@@ -70,7 +69,6 @@ const { t } = Astro.props;
       const result = contactSchema.safeParse(formData);
 
       if (!result.success) {
-        e.preventDefault();
         const { fieldErrors } = result.error.flatten();
 
         Object.entries(fieldErrors).forEach(([field, messages]) => {
@@ -92,6 +90,38 @@ const { t } = Astro.props;
         });
 
         return;
+      }
+
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          window.location.href = "https://www.alvaroalarcon.com/thanks";
+        } else {
+          const serverErrorMsg =
+            window.__VALIDATION_MESSAGES__["serverError"] ||
+            "No pudimos conectarnos al servidor. Por favor, inténtalo de nuevo más tarde.";
+          const globalErrorBox = document.getElementById("global-error");
+          if (globalErrorBox) {
+            globalErrorBox.textContent = serverErrorMsg;
+            globalErrorBox.style.display = "block";
+          }
+        }
+      } catch (error) {
+        const serverErrorMsg =
+          window.__VALIDATION_MESSAGES__["serverError"] ||
+          "No pudimos conectarnos al servidor. Por favor, inténtalo de nuevo más tarde.";
+        const globalErrorBox = document.getElementById("global-error");
+        if (globalErrorBox) {
+          globalErrorBox.textContent = serverErrorMsg;
+          globalErrorBox.style.display = "block";
+        }
       }
     });
   }

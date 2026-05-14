@@ -51,6 +51,8 @@ export default {
       nameMinLength: "❗El nombre debe tener más de 3 caracteres.",
       emailInvalid: "❗Dirección de correo electrónico inválida",
       messageMinLength: "❗El mensaje debe tener más de 10 caracteres",
+      invalidEmail: "Por favor, introduce un correo electrónico válido.",
+      serverError: "No pudimos conectarnos al servidor. Por favor, inténtalo de nuevo más tarde.",
     },
   },
 };
