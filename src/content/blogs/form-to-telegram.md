@@ -114,7 +114,6 @@ export default async function handler(req, res) {
   <input type="text" id="name" name="name" placeholder="Your Name" required />
   <input type="email" id="email" name="email" placeholder="Email" required />
   <textarea id="message" name="message" placeholder="Message" required></textarea>
-  <input type="text" name="_honey" style="display:none" />
   <button type="submit">Send</button>
 </form>
 
@@ -144,7 +143,7 @@ export default async function handler(req, res) {
 </script>
 ```
 
-This is a basic template but you can adapt it to your needs/frameworks. I recommend adding a honeypot trap for bots (shown above) and adding validation, etc. If you wanna see how I did it, check out my portfolio repo.
+This is a basic template but you can adapt it to your needs/frameworks. I recommend adding for example Cloudfare's turnstile for human verification. If you wanna see how I did it, check out my portfolio repo.
 
 ---
 
