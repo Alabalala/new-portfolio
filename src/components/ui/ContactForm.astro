@@ -3,8 +3,10 @@ import { CONTACT_FORM_INPUT } from "../../constants/contactForm";
 import Button from "./Button.astro";
 import Input from "./Input.astro";
 const { t } = Astro.props;
+const SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 ---
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
 <form id="contactForm" class="flex flex-col gap-5 mt-5">
   {
     CONTACT_FORM_INPUT.map((input) => {
@@ -27,7 +29,8 @@ const { t } = Astro.props;
       );
     })
   }
-  <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+  <div class="cf-turnstile mt-2" data-sitekey={SITE_KEY}></div>
+
   <div
     id="global-error"
     class="error-messages p-4 bg-on-secondary font-bold text-red-950 text-xs hidden mb-4"
