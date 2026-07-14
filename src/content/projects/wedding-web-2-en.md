@@ -12,4 +12,4 @@ Another website for a wedding event.
 
 In terms of functionality, it's similar to the other web. The RSVP form however is a bit more complex and has more options/steps.
 
-I also created all the desings and illustrations myself.
+I also created all the designs and illustrations myself.

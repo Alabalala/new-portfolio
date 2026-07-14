@@ -6,7 +6,7 @@ cover: "/blogs/trae-cover.png"
 locale: "en"
 ---
 
-We all thought AI was going to replace developers, big corpos would have only a handful of coders in their staff to guide their agents and keep making their apps bigger and wider. **But what if the future is different?**
+We all thought AI was going to replace developers, big corporations would have only a handful of coders in their staff to guide their agents and keep making their apps bigger and wider. **But what if the future is different?**
 
 An undeniable truth: AI is a powerful tool for developers that can cut development time in more than half and make tiny but repetitive tasks a thing of the past. That means anyone can develop an app in days when normally it would take months.
 
@@ -20,12 +20,12 @@ Now, I want you to grab my hand and go with me on a bit of a wild walk. I’d li
 
 **Paired with web3, the paradigm could switch completely from global gatekeepers to hyper-local interfaces that depend on super protocols-anyone has access to**.
 
-Let’s look at an example: Spotify. Right now, as a Spotify user, you’re bound to their interface, their songs, whatever they decide to do with them, their beef with artists, etc. Want a dashboard that shows how many Rosalia songs you’ve listened to this year? Can’t have it. A shuffle button with your own preferences? Nope, can’t do. No freedom, no power. 
+Let’s look at an example: Spotify. Right now, as a Spotify user, you’re bound to their interface, their songs, whatever they decide to do with them, their beef with artists, etc. Want a dashboard that shows how many Rosalia's songs you’ve listened to this year? Can’t have it. A shuffle button with your own preferences? Nope, can’t do. No freedom, no power.
 
 With AI and web3, you could build an app entirely designed for you or a client, with any button, list, feature you want, that depends on a system that is entirely on the blockchain and not owned by a single company. Everybody wins: users love their highly customised app, the internet is happy and probably artists would largely benefit from it too.
 
 I know that’s a big jump, but it’s just an example of what this could look like in a few years. Right now what’s certain is that we already have the possibility to create apps that are fully customised and tailored for clients and users
 
-Surely an interesting future. And while we can’t pretend to know what’s truly going to happen *(no, Chad, you don’t know for sure AI is going to take over the world)*, we can prepare in case our forecast comes true.
+Surely an interesting future. And while we can’t pretend to know what’s truly going to happen _(no, Chad, you don’t know for sure AI is going to take over the world)_, we can prepare in case our forecast comes true.
 
 **So, if you have a local super customised app you’d like to have built, why don’t you message me and we can have a little chat. I can build apps for Windows, web, android…**
