@@ -14,15 +14,15 @@ Check out the live site at [alvaroalarcon.com](https://www.alvaroalarcon.com/)
 
 - **Frontend:** HTML, CSS, Tailwind, JavaScript, Astro
 - **Deployment:** Vercel
-- **Extras:** Form handling with FormSubmit and validation with Zod 
+- **Extras:** Form handling with FormSubmit and validation with Zod
 
 ---
 
 ## 🚀 Features
 
-- Responsive UI mobile firts
+- Responsive, mobile-first UI
 - Contact form with autoresponse and Zod validation
-- Smooth scroll and subtle animations
+- Smooth scrolling and subtle animations
 
 ---
 
@@ -30,17 +30,17 @@ Check out the live site at [alvaroalarcon.com](https://www.alvaroalarcon.com/)
 
 Something about me, I love designing things from scratch.
 
-Here you can find some illustrations made by me on Figma. 
+Here you can find some illustrations made by me on Figma.
 
 I chose this particular color palette to reflect my personality and style.
 
-The style is **neobrutalist** with some moder touches. I wanted something that fel modern and clean but at the same time playful and nice-to-look-at.
+The style is **neobrutalist** with some of my own touches. I wanted something that felt modern and clean but at the same time playful and nice to look at.
 
 ---
 
-## Sugestions?
+## Suggestions?
 
-I'm always open to new ideas, and if you think something can be improved, please let me know! 
+I'm always open to new ideas, and if you think something can be improved, please let me know!
 
 ## License
 

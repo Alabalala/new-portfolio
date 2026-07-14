@@ -1,7 +1,7 @@
 export default {
   about: {
     title: "ABOUT ME",
-    p1: "I’m a bilingual web developer with 2 year of experience.",
+    p1: "I’m a bilingual web developer with 3 years of experience.",
     p2: "I love building clean, user-friendly interfaces that balance design and functionality. I always begin in Figma, where I prototype and experiment before turning my ideas into websites coded in React, Next.js, and Astro.",
     p3: "Everything you see on this page, including the illustrations, was designed by me in Figma.",
   },
@@ -38,21 +38,20 @@ export default {
     title: "CONTACT",
     form: {
       name: "Your name",
-      placeholderName: "E. g. Álvaro Alarcón",
+      placeholderName: "E.g. Álvaro Alarcón",
       email: "Your email",
-      placeholderEmail: "E. g. name@domain.com",
+      placeholderEmail: "E.g. name@domain.com",
       message: "Your message",
       placeholderMessage: "Write here almost as much as you want",
       CTA: "Send",
       autoresponse:
-        "Hi! Thanks for reaching out. I'll take a look at your message as soon as possible. Have a nice day! Álvaro",
+        "Hi! Thanks for reaching out. I'll take a look at your message as soon as possible. Have a nice day! —Álvaro",
     },
     validation: {
-      nameMinLength: "❗Name should be longer than 3 characters.",
-      emailInvalid: "❗Invalid email address",
-      messageMinLength: "❗Message must be longer than 10 characters",
-      invalidEmail: "Please enter a valid email.",
-      serverError: "We couldn't connect to the server. Please try again later.",
+      nameMinLength: "❗Name must be longer than 3 characters.",
+      emailInvalid: "❗Invalid email address.",
+      messageMinLength: "❗Message must be longer than 10 characters.",
+      serverError: "❗We couldn't connect to the server. Please try again later.",
     },
   },
 };

@@ -27,4 +27,4 @@ The app has i18n support and dark mode.
 
 I used Supabase for authentication, storage and database.
 
-You need to sign up to use the app, but you can't also contact me for a live demo or a dummy account.
+You need to sign up to use the app, but you can also contact me for a live demo or a dummy account.

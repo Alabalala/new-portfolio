@@ -20,7 +20,7 @@ tags:
 link: "https://github.com/Alabalala/horari"
 blog: true
 summary: |
-  Horari is a simple app fow Windows (Electron) that lets you create and manage shifts for different employees/departments.
+  Horari is a simple app for Windows (Electron) that lets you create and manage shifts for different employees/departments.
 
   To build this project, I used a next-gen development stack led by TRAE (AI-native IDE).
 
@@ -31,7 +31,7 @@ date: 2026-24-01
 **Horari** is a modern, efficient, and local-first weekly scheduling application designed to streamline employee shift management. It provides a clean, visual interface for managing staff schedules and generating professional print-ready exports.
 
 ## 🤖 **Built with AI & Trae**
->
+
 > This entire application was architected and built using **Trae**, an adaptive AI IDE. From the initial concept to the final production build, every line of code was crafted through the collaboration between me and Trae's AI agent.
 
 ## ✨ **Features**
@@ -56,13 +56,14 @@ Horari is built with a modern, robust stack ensuring performance and maintainabi
 - **Build Tool**: [Electron Vite](https://electron-vite.org/)
 
 ## 💡 **Why AI? - This part is AI-free**
+
 Up until now, I had generally only used AI as a side/research tool when coding. I had played around with agents/MCPs, but I had never used an AI IDE. And I was fascinated by the idea, but I was also scared.
 
 I downloaded TRAE to play around with it, when a client contacted me to see if I could develop a small Windows app for them. I saw this as the perfect opportunity to test TRAE's power. I also wanted to try Electron out, so the timing was great.
 
 Moreover, I know companies look for people who can write code, but can also use AI and leverage its power to write better code in less time.
 
-The client shared with me an Excel file which they had been using for shifts, but they had to copy/paste stuff constantly, formulas were breaking, etc. 
+The client shared with me an Excel file which they had been using for shifts, but they had to copy/paste stuff constantly, formulas were breaking, etc.
 
 <img width="917" height="490" alt="image" src="https://github.com/user-attachments/assets/a642b370-c9d6-4cb2-88ef-d7e30a0ad5d0" />
 
@@ -77,23 +78,24 @@ I analysed the Excel file and wrote a list of base features:
 
 So I started writing prompts and building the app. I couldn't honestly believe the speed at which this thing was technically building itself. I was orchestrating it and guiding it, but it was doing most of the work.
 
-It's scary, yes. But it's also amazing I was doing things that would normally take me hours in a few seconds. And yes there were moments when the AI would hit a wall or get into an infinite problem uncapable to sort a problem out, but the number of times that happened is anecdotical. 
+It's scary, yes. But it's also amazing I was doing things that would normally take me hours in a few seconds. And yes there were moments when the AI would hit a wall or get into an infinite problem unable to sort a problem out, but the number of times that happened is anecdotal.
 
 There were a lot of times where I actually wanted to be the one writing the code, instead of AI. At the end of th4e day, I became a programmer because I love it. But I think that's the great thing about this: you can use AI for the repetitive tasks, the things we don't like doing, we need to automate, etc. And then use our time to work on the parts we love.
 
 I'm really excited to see what can I build next.
 
 # Summary
+
 <div class="flex flex-wrap gap-3">
-  <div class="bg-on-tertiary text-tertiary px-4 py-3 shadow-(--box-shadow-tertiary) border-2 border-tertiary min-w-[160px]">
+  <div class="bg-on-tertiary text-tertiary px-4 py-3 shadow-(--box-shadow-tertiary) border-2 border-tertiary min-w-40">
     <p class="text-xs uppercase tracking-[0.2em] text-secondary mb-1">Days to MVP</p>
     <p class="font-bebas text-3xl leading-none">3</p>
   </div>
-  <div class="bg-on-tertiary text-tertiary px-4 py-3 shadow-(--box-shadow-tertiary) border-2 border-tertiary min-w-[160px]">
+  <div class="bg-on-tertiary text-tertiary px-4 py-3 shadow-(--box-shadow-tertiary) border-2 border-tertiary min-w-40">
     <p class="text-xs uppercase tracking-[0.2em] text-secondary mb-1">Total prompts</p>
     <p class="font-bebas text-3xl leading-none">90</p>
   </div>
-  <div class="bg-on-tertiary text-tertiary px-4 py-3 shadow-(--box-shadow-tertiary) border-2 border-tertiary min-w-[160px]">
+  <div class="bg-on-tertiary text-tertiary px-4 py-3 shadow-(--box-shadow-tertiary) border-2 border-tertiary min-w-40">
     <p class="text-xs uppercase tracking-[0.2em] text-secondary mb-1">Manual code</p>
     <p class="font-bebas text-3xl leading-none">&lt; 20 lines</p>
   </div>

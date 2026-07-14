@@ -10,6 +10,6 @@ locale: "en"
 
 This was my old portfolio, before going fully into web dev.
 
-It's in 2 languages (English and Spanish). And shows most of the porjects you see here too.
+It's in 2 languages (English and Spanish). And shows most of the projects you see here too.
 
-I particularly like the mobile mockups with the screenshots and gifs of the projects.
+I particularly like the mobile mock-ups with the screenshots and gifs of the projects.

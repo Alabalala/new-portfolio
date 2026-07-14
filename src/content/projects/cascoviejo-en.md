@@ -13,7 +13,7 @@ tags:
     "Google Analytics",
   ]
 link: "https://cascoviejobk.es/"
-date: 2025-08-01
+date: 2026-07-01
 locale: "en"
 ---
 
