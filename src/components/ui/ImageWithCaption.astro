@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+const { src, alt, caption, width, height, class: className } = Astro.props;
+const isLocalAsset = typeof src !== "string";
+---
+
+<figure class="flex flex-col gap-2">
+  {
+    isLocalAsset ? (
+      <Image src={src as ImageMetadata} alt={alt} class={`rounded-lg shadow-lg ${className}`} />
+    ) : (
+      <img
+        src={src as string}
+        alt={alt}
+        width={width}
+        height={height}
+        class={`rounded-lg shadow-lg ${className}`}
+      />
+    )
+  }
+  {caption && <figcaption class="text-sm text-tertiary/70 text-center">{caption}</figcaption>}
+</figure>

@@ -1,0 +1,130 @@
+---
+title: "Casco Viejo"
+image: "cascoviejo"
+color: "#0C4A36"
+tags:
+  [
+    "Astro",
+    "React",
+    "TypeScript",
+    "Tailwind",
+    "Contentful",
+    "Google Search Console",
+    "Google Analytics",
+  ]
+link: "https://cascoviejobk.es/"
+date: 2026-07-01
+blog: true
+summary: |
+  Casco Viejo Bar & Kitchen es un restaurante español que acudió a mí con una web que nadie encontraba, alojada en una instalación de WordPress envejecida que nadie podía editar con seguridad. La reconstruí desde cero: nuevo design system, nuevo stack, un CMS headless que los dueños realmente podían usar, y una migración sin tiempo de inactividad que mantuvo intactos años de posicionamiento SEO.
+locale: "es"
+stats:
+  - label: "Posición media"
+    value: "3.9"
+  - label: "Impresiones"
+    value: "9.6"
+  - label: "Clics"
+    value: "80.5k"
+  - label: "CTR máximo"
+    value: "8.4%"
+---
+
+import ImageWithCaption from "../../components/ui/ImageWithCaption.astro";
+import before from "../../assets/projects/casco/casco-study-case-before.png";
+import after from "../../assets/projects/casco/casco-study-case-after.png";
+import chart from "../../assets/projects/casco/casco-study-case-chart.png";
+import contentful from "../../assets/projects/casco/casco-study-case-contentful.png";
+import figma from "../../assets/projects/casco/casco-study-case-figma.png";
+
+## **LA WEB INVISIBLE**
+
+Cuando el dueño del restaurante me contactó, lo primero que mencionó fue que nadie visitaba su web. Tampoco sentían que representara su marca o su identidad. Además de todo eso, no tenían control total sobre la web y tenían que andar contratando a programadores para cosas diferentes.
+
+La web estaba hosteada en WordPress, tenía todos los plugins habidos y por haber y a menudo se caía sin motivo aparente. Muchos de los enlaces estaban rotos y había páginas huérfanas o escondidas entre enlaces. Pero lo peor de todo es que la web ni siquiera estaba rankeando en Google (hablaremos después de ello). La web tenía mala performance en todas las posiciones, de acuerdo a herramientas como Lighthouse o Google Search Console.
+
+El diseño era simple y estaba bien para 2015 cuando hicieron la web, pero ahora tenía un montón de colores diferentes que no tenían nada que ver con la marca; fuentes fuera de lugar, y botones, paddings, etc. con diferentes tamaños sin ton ni son… Parecía una página hecha a retales.
+
+El dueño decía que no sabía cómo usar WordPress más allá de lo más básico y que muchas veces tardaba más en averiguar dónde estaba algo que en cambiarlo.
+
+## **LA PUESTA AL DÍA**
+
+Llegó la hora de ponerse manos a la obra, así que fui al mágico lugar dónde empiezan todas las webs: Figma.
+
+<ImageWithCaption
+  src={figma}
+  alt="Captura de pantalla de los diseños de Figma para la web de Casco Viejo"
+  caption="Captura de pantalla de los diseños de Figma para la web de Casco Viejo"
+/>
+
+Estuve investigando algunas marcas y restaurantes importantes para inspirarme y acordé con el cliente los diseños específicos y las características que querían que tuviera. Creé un design system para su web, puse los colores y fuentes de la marca como variables e hice los componentes para poder diseñar la web
+
+El cliente estaba feliz con el resultado y, tras un par de reuniones para ultimar detalles, me dieron el visto bueno para desarrollar la web.
+
+<div class="flex flex-col md:flex-row gap-4">
+  <ImageWithCaption
+    src={before}
+    alt="Antes: diseño web anterior"
+    caption="Antes: diseño web anterior"
+  />
+  <ImageWithCaption
+    src={after}
+    alt="Después: nuevo diseño web"
+    caption="Después: nuevo diseño web"
+  />
+</div>
+
+## **TECNOLOGÍAS**
+
+- **Framework**: [Astro](https://astro.build/) + [React](https://react.dev/)
+- **Lenguaje**: [TypeScript](https://www.typescriptlang.org/)
+- **Estilos**: [Tailwind CSS](https://tailwindcss.com/)
+- **Validación**: [Zod](https://zod.dev/)
+- **CMS**: [Contentful](https://www.contentful.com/)
+- **Diseño**: [Figma](https://www.figma.com/)
+- **Hosting**: [Netlify](https://www.netlify.com/)
+
+## **EMPEZAMOS DE CERO**
+
+Sabía que quería una web que fuese rápida y fluida. Que los usuarios no tuvieran que esperar a que se cargara. Así que me decidí por Astro y React, con TypeScript y Tailwind.
+
+Acordamos que haríamos el lanzamiento solo cuando la web estuviese terminada, ya que ellos podían seguir usando la antigua hasta entonces.
+
+Uno de los principales puntos que el cliente había mencionado era que hasta ahora no habían tenido un menú online real. Habían añadido uno en algún momento, pero nadie lo actualizaba y estaba desfasadísimo. El cliente decía que les complicaba mucho la vida actualizarlo en WordPress. Yo ya había trabajado con diferentes CMS, así que les hice una demostración de mis favoritos para que escogieran. Contentful fue el ganador, porque les pareció muy fácil añadir o cambiar contenido.
+
+Creé un nuevo proyecto, nuevos content types, validaciones, etc. y una cuenta para el cliente. Luego escribí el código para las diferentes páginas con los menús (comidas/cenas, desayunos, bebidas) y las conecté con Contentful. También les conecté las galerías de fotos para que pudiesen cambiar las imágenes fácilmente. En general, esto fue una de las cosas que ellos más agradecieron, porque les ahorró horas de esfuerzo y dolores de cabeza.
+
+Cuando hice las diferentes páginas, me quise asegurar de que el SEO estuviera perfecto, que fueran fáciles de compartir y que fueran fáciles de leer para bots y LLM.
+
+<ImageWithCaption
+  src={contentful}
+  alt="Captura de pantalla de la configuración de Contentful para la web de Casco Viejo"
+  caption="Captura de pantalla de la configuración de Contentful para la web de Casco Viejo"
+/>
+
+Esto era un punto crítico porque hasta recientemente, ninguna de las páginas había rankeado en Google con ninguna de las keywords relevantes para un restaurante. Tuve que investigar bastante para dar con el problema. Aunque estaban siendo indexadas por Google, ninguna página aparecía ni siquiera en las 40 primeras páginas de resultados. Todavía estoy trabajando en ello porque hay mucho que mejorar, pero hemos conseguido cambios importantes como reducir la posición media de 9.6 a 3.9 en mayo. Hace poco también hemos añadido cambios importantes para solucionar algunos problemas de SEO y hemos creado nuevas páginas para nuevas keywords, así que pronto esperamos ver una mejora aun mayor.
+
+<ImageWithCaption
+  src={chart}
+  alt="Gráfico de Google Search Console mostrando la posición media de búsqueda"
+  caption="Gráfico de Google Search Console mostrando la posición media de búsqueda"
+/>
+
+El restaurante ya contaba con un servicio de reservas (Dish Reservation), así que lo conecté a la web para que la gente pudiera reservar directamente sin tener que ir a otro enlace.
+
+## **LA MIGRACIÓN**
+
+Cuando la web estuvo lista, llegó la hora de la migración. Todo fue bien sin complicaciones. Lo hicimos de noche un domingo, para asegurarnos de que no había clientes que estuvieran intentando acceder. Quité la web de WordPress, cambié el registro del dominio a mi nombre y subí la nueva web a Netlify, apuntando al dominio.
+
+Me gustaría comentar que obviamente mantuvimos todos los enlaces en la medida de lo posible, para que Google no se confundiera y no perder los backlinks que ya teníamos. Había muchos enlaces basura que el cliente ni siquiera sabía que existían. Me aseguré de que ya no estuvieran en la nueva web. Para las páginas que sí cambiaron de nombre, puse redirecciones para que la experiencia de usuario siguiera siendo impoluta.
+
+El lunes llegó, la nueva web funcionaba perfectamente, el restaurante estaba lleno de nuevos QR que la gente podía escanear para ver el menú y todo funcionaba a la perfección.
+
+## **EL RESULTADO**
+
+El lanzamiento de la web fue un éxito y desde entonces ha mejorado considerablemente la experiencia de los usuarios, con menús más bonitos y fluidos que contienen fotos, alérgenos, etc. Ya no hay enlaces rotos; ahora solo unos menús claros.
+
+El día a día del cliente también mejoró tanto o más. Ahora pueden actualizar fácilmente el contenido importante de la web con un par de clics en Contentful. Les envío actualizaciones periódicas de cómo va la web y tienen control absoluto.
+
+En el lado del SEO, como ya mencioné, la posición media mejoró de un 9.6 al mínimo de 3.9 en mayo. Y esperamos seguir subiendo puestos, con nuevas keywords y una estrategia en Google Business Profile y redes sociales. Además cada vez más marcas quieren colaborar con Casco Viejo y crear contenido que enlace a su web. Los clics y las impresiones han crecido substancialmente también, con un CTR que llegó a su máximo en el mes más fuerte con una subida de un 8%.
+
+Si quieres ver más cosas de las que hago, también me encargo de sus redes sociales. <a href="https://www.instagram.com/cascoviejobk/" class="text-secondary hover:underline" target="_blank">Mira aquí</a>.

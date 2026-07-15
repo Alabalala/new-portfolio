@@ -1,0 +1,131 @@
+---
+title: "Casco Viejo"
+image: "cascoviejo"
+color: "#0C4A36"
+tags:
+  [
+    "Astro",
+    "React",
+    "TypeScript",
+    "Tailwind",
+    "Contentful",
+    "Google Search Console",
+    "Google Analytics",
+  ]
+link: "https://cascoviejobk.es/"
+date: 2026-07-01
+blog: true
+summary: |
+  Casco Viejo Bar & Kitchen is a Spanish restaurant that came to me with a website nobody could find, hosted on an ageing WordPress setup that nobody could safely edit. I rebuilt it from the ground up: new design system, new stack, a headless CMS the owners could actually use, and a zero-downtime migration that kept years of SEO equity intact.
+locale: "en"
+stats:
+  - label: "Avg. position"
+    value: "3.9"
+  - label: "Impressions"
+    value: "9.6"
+  - label: "Clicks"
+    value: "80.5k"
+  - label: "Peak CTR"
+    value: "8.4%"
+---
+
+import ImageWithCaption from "../../components/ui/ImageWithCaption.astro";
+import before from "../../assets/projects/casco/casco-study-case-before.png";
+import after from "../../assets/projects/casco/casco-study-case-after.png";
+import chart from "../../assets/projects/casco/casco-study-case-chart.png";
+import contentful from "../../assets/projects/casco/casco-study-case-contentful.png";
+import schema from "../../assets/projects/casco/casco-study-case-schemas.png";
+import figma from "../../assets/projects/casco/casco-study-case-figma.png";
+
+## **THE INVISIBLE WEBSITE**
+
+When the restaurant owner contacted me, the first thing they mentioned was no one was visiting their website. They didn't feel like it represented their brand or their identity. On top of that, they didn't have full control of it and had to hire different devs for different things in the last few years.
+
+The website was hosted in WordPress, it had every possible plugin and a lot of times it went offline for no reason. Many links were broken and some pages were orphaned or hidden deep in links. But the worst part is that it wasn't ranking on Google (we'll talk more in detail about this later). The website had a really bad performance score across the table according to tools like Lighthouse or Google's Search Console.
+
+The design was simple, and nice when it was done in 2015, but by then it had a lot of different colours that didn't match the brand; fonts that were out of place, and buttons, paddings, etc. with different sizes for no reason… It was a bit of a patchwork.
+
+The owner claimed that they didn't really know how to use WordPress apart from the basics and that a lot of times it took them longer to figure out where something was than to change it.
+
+## **THE REVAMP**
+
+It was time for me to get my hands dirty, so I started where all the web magic starts: Figma.
+
+<ImageWithCaption
+  src={figma}
+  alt="Screenshot of the Figma designs for the Casco Viejo website"
+  caption="Screenshot of the Figma designs for the Casco Viejo website"
+/>
+
+I researched some big restaurants and brands to get some inspiration, and aligned with the client on the specific design and style features they wanted. I started a design system just for their website, added colour and font variables, created components and started designing their website.
+
+The client was happy with the result, and after a few meetings to finish the final details, I got the green light to start building the website.
+
+<div class="flex flex-col md:flex-row gap-4">
+  <ImageWithCaption
+    src={before}
+    alt="Before of the Casco Viejo website"
+    caption="Menu page of the website before the revamp"
+  />
+  <ImageWithCaption
+    src={after}
+    alt="After of the Casco Viejo website"
+    caption="Menu page of the website after the revamp"
+  />
+</div>
+
+## **TECHNOLOGY STACK**
+
+- **Framework**: [Astro](https://astro.build/) + [React](https://react.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Validation**: [Zod](https://zod.dev/)
+- **CMS**: [Contentful](https://www.contentful.com/)
+- **Design**: [Figma](https://www.figma.com/)
+- **Hosting**: [Netlify](https://www.netlify.com/)
+
+## **FROM THE GROUND UP**
+
+I knew I wanted a website that was fast and smooth. One that people didn't have to wait for when loading. So, I decided to use Astro and React, TypeScript and Tailwind.
+
+We agreed to launch only once it was fully ready, since they could keep using the old site in the meantime.
+
+One of the main pain-points the client had mentioned was the lack of a proper online menu. They had added one to the old website at some point, but it was outdated and the owner told me it was hard for them to change stuff. I had already used different CMS platforms, so I showcased some of my favourite ones to them and they ended up choosing Contentful because of how easy it was to change/update content.
+
+I set up a new project, new content types, validations, etc. and I created an account for one of the owners. I created the different pages needed for the menus (lunch/dinner, breakfast, drinks) and connected them to Contentful. I also used Contentful for the different image galleries around the website, so they could update them accordingly. This was one of their favourite features, one that saved them hours of work and headaches.
+
+When creating the different pages, I wanted to make sure they were SEO-perfect, sharable, and AI-friendly, so I made sure to add all the different tags, schemas and instructions for bots and LLMs possible.
+
+<ImageWithCaption
+  src={contentful}
+  alt="Screenshot of the Contentful setup for the Casco Viejo website"
+  caption="The owner can easily update the website content through Contentful"
+/>
+
+This was important because up until very recently, none of the website pages had ranked on Google for any of the important and relevant keywords. It took some research to understand the problem, because despite being indexed, none of the website's pages were appearing, not even in the first 40 result pages. This is currently still a work in progress, but we've managed to improve greatly the average position from 9.6 to a low 3.9 in May. We've recently made some big changes to address some SEO problems and created new pages to target new keywords so we expect to see another big improvement soon.
+
+<ImageWithCaption
+  src={chart}
+  alt="Screenshot of Google Search Console showing the average position of the Casco Viejo website"
+  caption="Average position improved from 9.6 to 3.9 between January and May"
+/>
+
+They already had a service for booking (Dish Reservation), so I connected it to their website so people could book through our website and feel like everything was part of the same ecosystem, despite it being a foreign tool.
+
+## **THE MIGRATION**
+
+When the website was done and ready, it was time for the migration. The process was smooth. We did it at night and on a Sunday to make sure no customers were trying to access the website. I got the old WordPress website offline, changed the domain to my name, uploaded the website to Netlify and pointed it to their domain.
+
+I want to mention here that we of course kept all the original links as much as possible so that Google wouldn't get confused and to not lose whatever backlinks they had. There were also a bunch of junk links left over from a hack years earlier that the owner didn't even know existed. I made sure those were gone for good. For the pages we did change the link for, I redirected to the new ones so that the user experience was seamless.
+
+Monday, the new website was up and running, the restaurant full of QR codes for people to scan and see the menu and everything working as it should.
+
+## **THE RESULT**
+
+The website launch was a success, but since then it has greatly improved the customers' experience, with nicer, smoother menus that contain pictures, allergens, etc. No more broken links; now only clear menus.
+
+The owners' day-to-day experience improved just as much. They can now easily update the important content of their website with a single Contentful form. They get periodic updates from me about how the website is doing and they have full control over it.
+
+On the SEO side, as we've already seen, the average position improved from 9.6 to a low of 3.9 in May. And we hope to keep climbing ranks, targeting new keywords and using Google Business Profile and social media as backup. We're also seeing more and more brands that want to collaborate with Casco Viejo and create content that links to their site. Clicks and impressions have also grown substantially alongside this, with CTR peaking above 8% during the site's strongest months.
+
+If you want to see even more, I also manage their social media. <a href="https://www.instagram.com/cascoviejobk/" class="text-secondary hover:underline" target="_blank">Peek here</a>.
