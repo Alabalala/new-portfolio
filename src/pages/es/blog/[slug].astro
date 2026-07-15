@@ -1,5 +1,5 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";;
+import { getCollection, render, type CollectionEntry } from "astro:content";
 import Link from "../../../components/ui/Link.astro";
 import Layout from "../../../layouts/Layout.astro";
 
@@ -9,15 +9,15 @@ export async function getStaticPaths() {
   const blogs = await getCollection("blogs");
 
   return blogs.map((blog) => ({
-    params: { slug: blog.slug },
+    params: { slug: blog.id },
     props: { blog },
   })) satisfies { params: { slug: string }; props: { blog: Blog } }[];
 }
 
 const { blog } = Astro.props as { blog: Blog };
-const { Content } = await blog.render();
+const { Content } = await render(blog);
 const formattedDate = new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).format(
-  blog.data.date
+  blog.data.date,
 );
 ---
 
@@ -27,11 +27,13 @@ const formattedDate = new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).fo
       <Link href="/es/#blogs" variant="simple-link" text="Volver a blogs" />
 
       <article class="bg-on-tertiary shadow-(--box-shadow-tertiary)">
-        {blog.data.cover && (
-          <div>
-            <img class="h-full object-cover" src={blog.data.cover} alt={blog.data.title} />
-          </div>
-        )}
+        {
+          blog.data.cover && (
+            <div>
+              <img class="h-full object-cover" src={blog.data.cover} alt={blog.data.title} />
+            </div>
+          )
+        }
 
         <div class="flex flex-col gap-6 p-6 md:p-10 text-tertiary">
           <div class="flex flex-col gap-2">

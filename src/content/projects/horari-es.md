@@ -25,8 +25,9 @@ summary: |
   Para construir este proyecto, utilice un stack de desarrollo next-gen con TRAE (IDE nativo de IA) a la cabeza.
 
   ¿Mi objetivo? Demostrar como la IA moderna puede multiplicar la eficiencia para un desarrollador de software.
-date: 2026-24-01
+date: 2026-01-24
 ---
+
 # **Horari**
 
 **Horari** es una aplicación moderna, eficiente y local-first para la planificación semanal de turnos, diseñada para simplificar la gestión de empleados. Ofrece una interfaz limpia y visual para organizar horarios y generar exportaciones profesionales listas para imprimir.
@@ -57,6 +58,7 @@ Horari está construido con un stack moderno y robusto para asegurar rendimiento
 - **Build tool**: [Electron Vite](https://electron-vite.org/)
 
 ## 💡 **¿Por qué IA? — Esta parte es sin IA**
+
 Hasta ahora, normalmente había usado la IA como una herramienta secundaria de investigación al programar. Había probado agentes/MCPs, pero nunca había usado un IDE con IA. La idea me fascinaba, pero también me daba algo de respeto.
 
 Me descargué TRAE para probarlo justo cuando un cliente me contactó para ver si podía desarrollar una app pequeña para Windows. Vi la oportunidad perfecta para poner a prueba el potencial de TRAE. Además, quería experimentar con Electron, así que el momento era ideal.
@@ -85,6 +87,7 @@ Hubo muchas veces en las que quería ser yo quien escribiera el código, en luga
 Tengo muchas ganas de ver qué más puedo programar.
 
 # Resumen
+
 <div class="flex flex-wrap gap-3">
   <div class="bg-on-tertiary text-tertiary px-4 py-3 shadow-(--box-shadow-tertiary) border-2 border-tertiary min-w-[160px]">
     <p class="text-xs uppercase tracking-[0.2em] text-secondary mb-1">Días para MVP</p>

@@ -1,0 +1,18 @@
+---
+import type { StatsProps } from "../../utils/types";
+
+const { stats } = Astro.props;
+---
+
+<div class="flex flex-wrap gap-3">
+  {
+    stats.map((stat: StatsProps) => {
+      return (
+        <div class="bg-on-tertiary text-tertiary px-4 py-3 shadow-(--box-shadow-tertiary) border-2 border-tertiary min-w-40">
+          <p class="text-xs uppercase tracking-[0.2em] text-secondary mb-1">{stat.label}</p>
+          <p class="font-bebas text-3xl leading-none">{stat.value}</p>
+        </div>
+      );
+    })
+  }
+</div>
