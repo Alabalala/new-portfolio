@@ -15,6 +15,14 @@ export const collections = {
       blog: z.boolean().optional(),
       date: z.coerce.date(),
       locale: z.string(),
+      stats: z
+        .array(
+          z.object({
+            label: z.string(),
+            value: z.union([z.string(), z.number()]),
+          }),
+        )
+        .optional(),
     }),
   }),
   blogs: defineCollection({
@@ -25,6 +33,14 @@ export const collections = {
       date: z.coerce.date(),
       cover: z.string().optional(),
       locale: z.string().optional(),
+      stats: z
+        .array(
+          z.object({
+            label: z.string(),
+            value: z.union([z.string(), z.number()]),
+          }),
+        )
+        .optional(),
     }),
   }),
 };
