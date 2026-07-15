@@ -1,5 +1,5 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 import Badge from "../../../components/ui/Badge.astro";
 import Link from "../../../components/ui/Link.astro";
 import Layout from "../../../layouts/Layout.astro";
@@ -9,19 +9,19 @@ type Project = CollectionEntry<"projects">;
 export async function getStaticPaths() {
   const projects: Project[] = await getCollection(
     "projects",
-    (p: Project) => p.data.locale === "es" && p.data.blog
+    (p: Project) => p.data.locale === "es" && p.data.blog,
   );
 
   return projects.map((project) => ({
-    params: { slug: project.slug },
+    params: { slug: project.id },
     props: { project },
   })) satisfies { params: { slug: string }; props: { project: Project } }[];
 }
 
 const { project } = Astro.props as { project: Project };
-const { Content } = await project.render();
+const { Content } = await render(project);
 const formattedDate = new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).format(
-  project.data.date
+  project.data.date,
 );
 ---
 
@@ -31,7 +31,10 @@ const formattedDate = new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).fo
       <Link href="/es/#projects" variant="simple-link" text="Volver a proyectos" />
 
       <article class="bg-on-tertiary shadow-(--box-shadow-tertiary)">
-        <div class="py-6" style={`background-color: ${project.data.color ?? "var(--color-secondary)"}`}>
+        <div
+          class="py-6"
+          style={`background-color: ${project.data.color ?? "var(--color-secondary)"}`}
+        >
           <img
             class="mx-auto h-16"
             src={`/logos/${project.data.image}.webp`}
@@ -45,23 +48,27 @@ const formattedDate = new Intl.DateTimeFormat("es-ES", { dateStyle: "long" }).fo
             <p class="text-sm md:text-base text-tertiary/80">{formattedDate}</p>
           </div>
 
-          {project.data.tags && (
-            <div class="flex flex-wrap gap-2">
-              {project.data.tags.map((tag: string) => (
-                <Badge text={tag} />
-              ))}
-            </div>
-          )}
+          {
+            project.data.tags && (
+              <div class="flex flex-wrap gap-2">
+                {project.data.tags.map((tag: string) => (
+                  <Badge text={tag} />
+                ))}
+              </div>
+            )
+          }
 
           <div class="space-y-5 text-base md:text-xl md:leading-8 text-tertiary">
             <Content entry={project} />
           </div>
 
-          {project.data.link && (
-            <div class="flex flex-wrap gap-3">
-              <Link text="Visitar web" href={project.data.link} variant="secondary" />
-            </div>
-          )}
+          {
+            project.data.link && (
+              <div class="flex flex-wrap gap-3">
+                <Link text="Visitar web" href={project.data.link} variant="secondary" />
+              </div>
+            )
+          }
         </div>
       </article>
     </div>

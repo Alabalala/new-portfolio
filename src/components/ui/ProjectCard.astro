@@ -1,13 +1,17 @@
 ---
+import { render } from "astro:content";
 import Badge from "./Badge.astro";
 import Link from "./Link.astro";
 
 const { project, t, locale } = Astro.props;
-const { Content } = await project.render();
+const { Content } = await render(project);
 
-const blogHref = locale === "es" ? `/es/projects/${project.slug}` : `/projects/${project.slug}`;
+const blogHref = locale === "es" ? `/es/projects/${project.id}` : `/projects/${project.id}`;
 const summaryParagraphs = project.data.summary
-  ? project.data.summary.split("\n\n").map((paragraph: string) => paragraph.trim()).filter(Boolean)
+  ? project.data.summary
+      .split("\n\n")
+      .map((paragraph: string) => paragraph.trim())
+      .filter(Boolean)
   : null;
 ---
 
@@ -43,12 +47,16 @@ const summaryParagraphs = project.data.summary
       )
     }
     <div class="flex justify-center flex-wrap gap-3">
-      {project.data.link && (
-        <Link text={t.projects.visitWebsite} href={project.data.link} variant="secondary" />
-      )}
-      {project.data.blog && (
-        <Link text={t.projects.readBlog} href={blogHref} variant="secondary-reversed" />
-      )}
+      {
+        project.data.link && (
+          <Link text={t.projects.visitWebsite} href={project.data.link} variant="secondary" />
+        )
+      }
+      {
+        project.data.blog && (
+          <Link text={t.projects.readBlog} href={blogHref} variant="secondary-reversed" />
+        )
+      }
     </div>
   </div>
 </article>

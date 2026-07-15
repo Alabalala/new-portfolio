@@ -1,6 +1,6 @@
 ---
 const { blog, locale } = Astro.props;
-const blogHref = locale === "es" ? `/es/blog/${blog.slug}` : `/blog/${blog.slug}`;
+const blogHref = locale === "es" ? `/es/blog/${blog.id}` : `/blog/${blog.id}`;
 const formattedDate = new Intl.DateTimeFormat(locale === "es" ? "es-ES" : "en-US", {
   dateStyle: "long",
 }).format(blog.data.date);
@@ -15,11 +15,13 @@ const formattedDate = new Intl.DateTimeFormat(locale === "es" ? "es-ES" : "en-US
       <p class="text-xs uppercase tracking-[0.3em] text-secondary">Blog</p>
       <div class="h-1 w-10 bg-secondary"></div>
     </div>
-    {blog.data.cover && (
-      <div class="" style={`background-color: var(--color-secondary)`}>
-        <img class="h-full object-cover" src={blog.data.cover} alt={blog.data.title} />
-      </div>
-    )}
+    {
+      blog.data.cover && (
+        <div class="" style={`background-color: var(--color-secondary)`}>
+          <img class="h-full object-cover" src={blog.data.cover} alt={blog.data.title} />
+        </div>
+      )
+    }
     <div class="bg-on-tertiary p-5 flex flex-col gap-4">
       <div class="flex flex-col gap-2">
         <p class="text-xs uppercase tracking-[0.2em] text-secondary">{formattedDate}</p>
