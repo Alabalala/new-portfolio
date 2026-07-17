@@ -4,7 +4,7 @@ image: "new-portfolio"
 color: "#E07A5F"
 tags: ["Astro", "Tailwind", "TypeScript"]
 link: "https://alvaroalarcon.com/"
-date: 2025-05-06
+date: 2025-01-06
 locale: "es"
 ---
 

@@ -13,10 +13,12 @@ tags:
     "Zod",
     "Zustand",
     "next-intl",
+    "Figma",
   ]
 link: "https://regafy.netlify.app/"
-date: 2025-11-01
+date: 2026-06-01
 locale: "es"
+demo: "videos/demo-regafy.webm"
 ---
 
 Aplicación web de tipo red social para compartir listas de deseos y regalos con tus amigos.
