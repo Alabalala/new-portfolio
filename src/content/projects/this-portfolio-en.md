@@ -8,7 +8,7 @@ date: 2025-05-06
 locale: "en"
 ---
 
-I started working in my new portfolio because i wanted something that was mobile-first, simple to use and very direct.
+I started working in my new portfolio because I wanted something that was mobile-first, simple to use and very direct.
 
 At the end of the day, I think this is what recruiters normally look for.
 

@@ -13,18 +13,22 @@ tags:
     "Zod",
     "Zustand",
     "next-intl",
+    "Figma",
   ]
 link: "https://regafy.netlify.app/"
-date: 2025-11-01
+date: 2026-06-01
 locale: "en"
+demo: "videos/demo-regafy.webm"
 ---
 
-Social media web app for sharing gift wish lists with friends.
+Ever felt like you never know what to give someone as a gift? I've been there. And that's why I made this app.
 
-You can share gifts, add friends, create events, comments, questions, secret gift exchanges and much more!
+The idea behing Regafy is simple: to share gift wish lists with friends and see what your friends are looking for.
 
-The app has i18n support and dark mode.
+But that's not all. You can create events, invite friends, create secret gift exchanges and much more!
 
-I used Supabase for authentication, storage and database.
+The app has i18n support with English and Spanish and dark mode.
 
-You need to sign up to use the app, but you can also contact me for a live demo or a dummy account.
+The app is built with Next.js, React and Typescript and Supabase for the backend. I used Zustand for state management and React Hook Form for form handling.
+
+You need to sign up to use the app, but you can also watch the short demo video or contact me for a dummy account.

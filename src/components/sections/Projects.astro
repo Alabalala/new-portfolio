@@ -4,7 +4,10 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import ProjectCard from "../ui/ProjectCard.astro";
 
 const { t, locale } = Astro.props;
-const projectsRaw: CollectionEntry<'projects'>[] = await getCollection("projects", (p: CollectionEntry<'projects'>) => p.data.locale === locale);
+const projectsRaw: CollectionEntry<"projects">[] = await getCollection(
+  "projects",
+  (p: CollectionEntry<"projects">) => p.data.locale === locale,
+);
 const projects = projectsRaw.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 

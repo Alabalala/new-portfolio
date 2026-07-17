@@ -25,6 +25,7 @@ export default {
     title: "PROYECTOS",
     visitWebsite: "VISITAR WEB",
     readBlog: "SABER MÁS",
+    watchDemo: "VER DEMO",
   },
   digitalBadges: {
     title: "INSIGNIAS DIGITALES",

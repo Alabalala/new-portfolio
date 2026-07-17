@@ -25,6 +25,7 @@ export default {
     title: "PROJECTS",
     visitWebsite: "VISIT WEBSITE",
     readBlog: "READ MORE",
+    watchDemo: "WATCH DEMO",
   },
   digitalBadges: {
     title: "DIGITAL BADGES",

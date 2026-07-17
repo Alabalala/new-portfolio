@@ -2,6 +2,7 @@
 import { render } from "astro:content";
 import Badge from "./Badge.astro";
 import Link from "./Link.astro";
+import ProjectActions from "./ProjectActions.astro";
 
 const { project, t, locale } = Astro.props;
 const { Content } = await render(project);
@@ -13,6 +14,7 @@ const summaryParagraphs = project.data.summary
       .map((paragraph: string) => paragraph.trim())
       .filter(Boolean)
   : null;
+console.log(project.data.demo);
 ---
 
 <article class="bg-on-tertiary shadow-(--box-shadow-tertiary) max-w-[400px] h-auto">
@@ -46,17 +48,13 @@ const summaryParagraphs = project.data.summary
         </div>
       )
     }
-    <div class="flex justify-center flex-wrap gap-3">
-      {
-        project.data.link && (
-          <Link text={t.projects.visitWebsite} href={project.data.link} variant="secondary" />
-        )
-      }
-      {
-        project.data.blog && (
-          <Link text={t.projects.readBlog} href={blogHref} variant="secondary-reversed" />
-        )
-      }
-    </div>
+
+    <ProjectActions
+      demo={project.data?.demo}
+      link={project.data?.link}
+      blog={project.data?.blog}
+      blogHref={blogHref}
+      t={t.projects}
+    />
   </div>
 </article>
