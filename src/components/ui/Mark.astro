@@ -1,0 +1,6 @@
+---
+import { highlightVariants } from "../../styles/tv/highlightVariants";
+const { variant } = Astro.props;
+---
+
+<span class={highlightVariants({ highlightVariant: variant })}><slot /></span>

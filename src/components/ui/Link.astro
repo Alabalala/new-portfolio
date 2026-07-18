@@ -1,7 +1,9 @@
 ---
 import { buttonVariants } from "../../styles/tv/buttonVariants";
 
-const { text, variant, href } = Astro.props;
+const { text, variant, href, target, rel } = Astro.props;
 ---
 
-<a href={href} class={buttonVariants({ buttonVariant: variant })}>{text}<slot /></a>
+<a href={href} target={target} rel={rel} class={buttonVariants({ buttonVariant: variant })}
+  >{text}<slot /></a
+>

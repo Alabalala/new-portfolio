@@ -15,9 +15,12 @@ export default {
     title: "NO VAMOS A PERDER EL TIEMPO",
     subtitle: "Si buscas un desarrollador web que sabe...",
     punchline: "¡ESE SOY YO!",
+    pitch:
+      "y 3 años de experiencia, desde el diseño hasta el lanzamiento: restaurantes, redes sociales, webs para bodas y más.",
     buttons: {
       learnMore: "MÁS INFO",
       contactMe: "CONTÁCTAME",
+      myResume: "MI CV",
     },
   },
 
@@ -25,6 +28,7 @@ export default {
     title: "PROYECTOS",
     visitWebsite: "VISITAR WEB",
     readBlog: "SABER MÁS",
+    watchDemo: "VER DEMO",
   },
   digitalBadges: {
     title: "INSIGNIAS DIGITALES",

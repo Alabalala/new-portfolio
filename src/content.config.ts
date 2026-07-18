@@ -15,6 +15,7 @@ export const collections = {
       blog: z.boolean().optional(),
       date: z.coerce.date(),
       locale: z.string(),
+      demo: z.string().optional(),
       stats: z
         .array(
           z.object({
