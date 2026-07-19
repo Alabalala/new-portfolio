@@ -20,7 +20,7 @@ export default {
     buttons: {
       learnMore: "MÁS INFO",
       contactMe: "CONTÁCTAME",
-      myResume: "MI CV",
+      myResume: "VER MI CV",
     },
   },
 
