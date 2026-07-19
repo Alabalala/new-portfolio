@@ -16,7 +16,7 @@ export default {
     subtitle: "If you’re looking for a web dev who knows...",
     punchline: "I'M YOUR GUY!",
     pitch:
-      "and 3 years experience, design to deploy: restaurants, social apps, wedding platforms, and more.",
+      "and 3 years building and shipping web apps, from design to deploy: restaurants, social apps, wedding platforms, and more.",
     buttons: {
       learnMore: "LEARN MORE",
       contactMe: "CONTACT ME",
