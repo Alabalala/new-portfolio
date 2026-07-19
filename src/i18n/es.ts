@@ -16,11 +16,11 @@ export default {
     subtitle: "Si buscas un desarrollador web que sabe...",
     punchline: "¡ESE SOY YO!",
     pitch:
-      "y 3 años de experiencia, desde el diseño hasta el lanzamiento: restaurantes, redes sociales, webs para bodas y más.",
+      "y 3 años construyendo y desplegando web apps, desde el diseño hasta el lanzamiento: restaurantes, redes sociales, webs para bodas y más.",
     buttons: {
       learnMore: "MÁS INFO",
       contactMe: "CONTÁCTAME",
-      myResume: "MI CV",
+      myResume: "VER MI CV",
     },
   },
 
