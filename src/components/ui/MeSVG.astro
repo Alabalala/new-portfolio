@@ -1,10 +1,1248 @@
+---
+// Hero self-portrait as a little living character, animated with GSAP below.
+// Moods: OK (thumbs-up, default), POINT (at the [data-me-cheer] links), ANGRY (when poked
+// too much), WHISTLE (idle spell). Every mood change snaps through a relaxed NEUTRAL pose.
+import {
+  COLLAR,
+  CROSSED_DX,
+  FACE,
+  GLINTS,
+  HEAD,
+  NO_HEAD_CLIP,
+  POINT_DX,
+  POSE_CROSSED,
+  POSE_NEUTRAL,
+  POSE_OK,
+  POSE_OK_RIGGED,
+  POSE_POINT,
+  POSE_POINT_RIGGED,
+} from "./meArt";
+
+const clipId = `me-nohead-${Math.random().toString(36).slice(2, 8)}`;
+---
+
 <svg
-  class="w-[117px] h-[160px] md:w-[150px] md:h-[200px] lg:w-[280px] lg:h-[360px]"
-  viewBox="0 0 117 160"
+  class="me-svg w-[117px] h-[160px] md:w-[146px] md:h-[200px] md:mr-1 lg:w-[263px] lg:h-[360px] lg:mr-5"
+  viewBox="-3 -3 130 178"
   fill="none"
+  stroke="#FFEA8C"
+  stroke-width="1"
+  stroke-linecap="round"
+  stroke-linejoin="round"
   xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Illustrated self-portrait giving a thumbs-up"
+  data-me
 >
-  <path
-    d="M100.647 132.643C101.98 139.643 103.447 157.443 98.6469 172.643M32.853 137.642C46.0263 139.918 50.7289 140.301 72.6469 138.015M65.6469 172.643L68.6469 155.643L89.6469 143.643M72.6469 138.015C71.6469 142.986 69.9469 152.971 71.1469 153.143C72.6469 153.357 75.6469 142.06 74.1469 137.851M72.6469 138.015C73.1469 137.962 73.647 137.908 74.1469 137.851M74.1469 137.851C84.3113 136.698 94.4349 134.597 103.647 131.143C104.647 95.6429 89.6469 86.1429 90.6469 80.6429M74.1469 137.851C74.3136 141.282 74.8469 148.143 75.6469 148.143C76.6469 148.143 78.6469 140.031 75.6469 138.015M82.1469 59.6429C84.3153 63.1808 87.8746 69.6569 89.6465 74.8012M90.6469 80.6429C90.8991 79.2558 90.4622 77.1697 89.6465 74.8012M90.6469 80.6429C89.3134 84.8096 99.6465 92.4 104.146 92.1429C118.146 91.3429 115.313 70.44 112.146 60.0885M31.1469 71.1429C31.1469 76.8096 30.7469 88.5429 29.1469 90.1429M29.1469 90.1429C28.3004 89.635 27.2869 89.0787 26.1469 88.5133M29.1469 90.1429C28.8361 91.3096 27.6578 93.4429 25.4307 92.6429M1.1469 85.6429C1.9365 85.1917 2.77351 84.8342 3.6469 84.5596M1.1469 85.6429C0.93338 86.3096 1.0204 87.6429 3.07662 87.6429M1.1469 85.6429C1.31343 74.6429 7.84649 50.9429 32.6465 44.1429M3.6469 84.5596C10.7166 82.3369 20.1696 85.549 26.1469 88.5133M3.6469 84.5596C3.4271 85.3765 3.22875 86.409 3.07662 87.6429M18.6469 150.643C18.3385 150.669 18.0463 150.646 17.7696 150.58M17.1469 144.643C17.6469 147.643 19.6469 153.643 23.6469 153.643M21.6469 145.143C21.8136 148.143 23.0469 154.243 26.6469 154.643C28.23 154.819 28.3898 153.695 27.9972 152.143M25.6469 144.643C24.6746 144.967 27.2737 149.283 27.9972 152.143M27.9972 152.143C28.2138 152.81 28.9469 154.143 30.1469 154.143C31.3793 154.143 31.9367 152.455 30.7097 144.643M29.6469 138.643C30.0929 140.962 30.4434 142.947 30.7097 144.643M30.7097 144.643C31.1888 145.476 32.4469 146.943 33.6469 146.143C35.1469 145.143 35.2726 142.643 30.7097 132.643C30.089 131.643 28.6774 129.743 27.9972 130.143C26.7138 119.476 24.0469 98.1429 23.6469 98.1429C23.336 98.1429 24.5718 95.3359 25.4307 92.6429M26.1469 88.5133C26.336 89.4097 25.953 91.0052 25.4307 92.6429M3.07662 87.6429C2.15413 95.1251 2.93133 110.013 10.9319 129.143M10.9319 129.143C11.6163 130.779 12.3534 132.446 13.1469 134.143C13.129 134.752 13.123 135.426 13.1326 136.143M10.9319 129.143C10.1609 131.31 9.52148 135.743 13.1326 136.143M13.1326 136.143C13.2064 141.663 14.2029 149.732 17.7696 150.58M17.7696 150.58C18.0619 157.768 19.0465 172.243 20.6465 172.643M32.6465 44.1429C36.1465 56.1429 64.1465 65.957 66.6465 48.957M32.6465 44.1429V37.1429C29.9798 34.3096 25.8465 27.8429 30.6465 24.6429M30.6465 24.6429C29.9798 23.4762 29.0465 20.9429 30.6465 20.1429C29.4798 19.3096 27.6465 17.0429 29.6465 14.6429C29.1511 12.6614 29.0484 8.81502 32.5474 9.13289M30.6465 24.6429C32.1465 23.9762 34.9465 25.4429 34.1465 36.6429C33.1465 50.6429 52.1465 54.1429 55.6465 53.6429C59.1465 53.1429 74.1465 49.1429 71.6465 35.6429C70.9927 31.8837 69.217 24.438 67.2623 24.1514M32.6465 9.1429C32.6131 9.1392 32.5801 9.13586 32.5474 9.13289M32.5474 9.13289C32.5804 7.30289 33.7465 3.9429 38.1465 5.1429C38.9798 3.6429 41.4465 1.1429 44.6465 3.1429C45.8132 1.80956 48.9465 -0.0571092 52.1465 3.14289C53.8132 2.14289 57.3465 1.14288 58.1465 5.14288C59.9798 4.14288 63.6465 3.64288 63.6465 9.64288C64.8132 10.8095 66.5465 13.6429 64.1465 15.6429C64.9798 16.9762 66.5465 19.7429 66.1465 20.1429C66.6465 20.1429 67.7465 20.2429 68.1465 20.6429V21.6429H66.6465C67.057 22.3152 67.755 23.7582 67.2623 24.1514M31.1465 27.1429C31.8132 27.1429 33.0465 27.5429 32.6465 29.1429C32.1465 31.1429 30.1465 28.1429 32.1465 32.1429M67.1465 24.1429C67.1852 24.1429 67.2238 24.1458 67.2623 24.1514M43.6465 18.1429C44.4798 17.4762 46.5465 16.4429 48.1465 17.6429M57.6465 16.6429C58.1465 16.1429 59.5465 15.4429 61.1465 16.6429M51.1465 31.6429C47.1465 31.6429 43.6465 34.6429 42.6465 36.6429C37.4465 36.6429 35.8132 28.9762 35.6465 25.1429H41.1465C40.8132 27.3096 41.5465 31.4429 47.1465 30.6429C52.7465 29.8429 52.8132 24.9762 52.1465 22.6429C54.5465 21.0429 55.8132 21.9762 56.1465 22.6429C58.5465 30.6429 64.1465 28.3096 66.6465 26.1429C67.9798 28.3096 69.5465 33.2429 67.1465 35.6429C68.3465 32.8429 62.086 31.4762 58.8057 31.1429M55.1465 23.6429C53.7505 27.8309 61.016 28.9874 58.8057 31.1429M58.1465 31.6429C58.4238 31.4696 58.641 31.3035 58.8057 31.1429M52.1465 29.1429C50.6465 30.1429 50.0465 33.1429 53.6465 31.1429M50.6465 35.1429C53.4798 35.3095 59.4465 35.4429 60.6465 34.6429M62.6465 35.6429C64.2465 48.0429 44.6465 46.1429 47.6465 36.1429C50.7629 37.6071 57.8259 39.7569 61.1465 36.6429M68.6465 46.6429C74.6465 46.1429 87.5261 52.2429 95.5261 66.6429C93.2936 70.4843 92.0349 72.3127 89.6465 74.8012M94.1465 82.1429C90.2023 74.2545 97.9255 63.9355 97.6625 58.8554M97.6465 58.6429C97.6535 58.7127 97.6588 58.7835 97.6625 58.8554M97.6625 58.8554C95.4905 54.6179 92.7465 44.5429 99.1465 38.1429C99.8132 37.8095 98.5674 30.876 99.1465 29.6429C99.7256 28.4098 107.946 26.3429 105.146 39.1429M105.146 39.1429C97.9465 41.5429 99.1465 45.4762 100.646 47.1429M105.146 39.1429C109.313 38.8095 117.146 39.7429 115.146 46.1429M102.146 52.6429C99.9798 50.4762 97.8465 45.9429 106.646 45.1429C117.646 44.1429 116.646 48.6429 114.737 51.6429M103.646 57.6429C101.646 56.1429 99.5465 52.6429 107.146 50.6429C114.746 48.6429 115.98 52.8096 115.646 55.1429C114.955 56.6638 113.736 58.6264 112.146 60.0885M111.146 55.6429C103.546 55.6429 102.98 58.9762 103.646 60.6429C106.924 63.2177 109.904 62.1512 112.146 60.0885M42.6465 24.6429L48.5674 20.876M44.0674 26.876L49.5674 23.376M45.6465 28.376L47.8569 27.126L50.0674 25.876M58.0674 21.876L60.0674 21.0095L62.0674 20.1429M59.5674 23.876L61.8569 22.7594L64.1465 21.6429M61.1465 26.1429L62.8569 25.1471L64.5674 24.1514M51.1465 41.876C51.9535 41.2093 54.7674 39.976 59.5674 40.376M35.6465 23.6429C36.1465 21.9762 36.8465 18.5429 35.6465 18.1429C36.4798 17.3095 37.8465 15.5429 36.6465 15.1429C37.4798 15.3095 39.2465 15.3429 39.6465 14.1429C41.4798 14.8095 45.2465 15.7429 45.6465 14.1429C47.1465 14.8095 50.3465 15.6429 51.1465 13.6429C52.8132 14.3095 56.4465 15.1429 57.6465 13.1429C58.3132 13.8095 60.0465 14.8429 61.6465 13.6429L64.1465 18.1429C59.3465 16.5429 57.1465 19.4762 56.6465 21.1429C55.0465 19.5429 52.6465 20.8095 51.6465 21.6429C51.4798 20.6429 50.2465 18.6429 46.6465 18.6429C43.0465 18.6429 41.4798 21.9762 41.1465 23.6429H35.6465Z"
-    stroke="#FFEA8C"></path>
+  <defs>
+    <clipPath id={clipId} clipPathUnits="userSpaceOnUse">
+      <path d={NO_HEAD_CLIP} clip-rule="evenodd"></path>
+    </clipPath>
+  </defs>
+  <g data-me-el="nudge">
+    <g data-me-el="squash">
+      <g data-me-el="lean">
+        <g data-me-el="exhale">
+          <g data-me-el="breath">
+            <g data-me-pose="ok">
+              <path d={POSE_OK}></path>
+              {POSE_OK_RIGGED.map((p) => <path d={p.d} data-me-rig={p.rig} />)}
+            </g>
+            <g data-me-pose="neutral" visibility="hidden">
+              <path d={POSE_NEUTRAL}></path>
+            </g>
+            <g data-me-pose="point" visibility="hidden" transform={`translate(${POINT_DX} 0)`}>
+              <path d={POSE_POINT}></path>
+              {
+                POSE_POINT_RIGGED.map((p) => (
+                  <path d={p.d} data-me-rig={p.rig} data-me-fade={p.fade ? "" : undefined} />
+                ))
+              }
+            </g>
+            <g data-me-pose="angry" visibility="hidden" clip-path={`url(#${clipId})`}>
+              <path
+                d={POSE_CROSSED}
+                transform={`translate(${CROSSED_DX} 0)`}
+                fill="#FFEA8C"
+                stroke-width="0.12"></path>
+            </g>
+            <path d={COLLAR}></path>
+            <g data-me-el="notes" stroke-width="0.8"></g>
+            <g data-me-el="headTilt">
+              <g data-me-el="headFollow">
+                <g data-me-el="head">
+                  <path d={HEAD}></path>
+                  <g stroke="#FFFDF0" stroke-width="1.15">
+                    {GLINTS.map((d) => <path d={d} data-me-el="glint" opacity="0" />)}
+                  </g>
+                  <path d={FACE.browL} data-me-el="browL"></path>
+                  <path d={FACE.browR} data-me-el="browR"></path>
+                  <g data-me-el="mouthBreath">
+                    <g data-me-el="mouthAct">
+                      <path d={FACE.lip} data-me-el="lip"></path>
+                      <path d={FACE.grin} data-me-el="grin"></path>
+                      <path d={FACE.tongue} data-me-el="tongue"></path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
 </svg>
+
+<style>
+  .me-svg {
+    overflow: visible;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
+  import { POINT_DX } from "./meArt";
+
+  gsap.registerPlugin(MorphSVGPlugin);
+
+  type Mood = "ok" | "neutral" | "point" | "angry" | "whistle" | "sleepy";
+  type Timeline = gsap.core.Timeline;
+  type Tween = gsap.core.Tween;
+  type Pt = [number, number];
+
+  // ---------------- tuning ----------------
+  /** Random idle beat (thumb push, chuckle, brow flash, glint) every MIN..MAX seconds in OK. */
+  const IDLE_BEAT_MIN_S = 4;
+  const IDLE_BEAT_MAX_S = 8;
+  /** Idle variety: a whistle spell or an unprompted point every MIN..MAX seconds in OK. */
+  const IDLE_SPELL_MIN_S = 15;
+  const IDLE_SPELL_MAX_S = 25;
+  const WHISTLE_SPELL_MIN_S = 4;
+  const WHISTLE_SPELL_MAX_S = 6;
+  const POINT_SPELL_S = 2;
+  /** Share of idle spells that are a point (the rest are whistles). */
+  const IDLE_POINT_CHANCE = 0.25;
+  /** Hover/focus on a cheer link: point while held, back to OK this long after leaving. */
+  const POINT_RELEASE_DELAY_S = 0.4;
+  /** [data-me-cheer] scrolled into view: point once for POINT_SCROLL_HOLD_S, rate-limited. */
+  const POINT_SCROLL_THRESHOLD = 0.6;
+  const POINT_SCROLL_HOLD_S = 2;
+  const POINT_SCROLL_COOLDOWN_MS = 20000;
+  /** Touch devices: point when he is about to scroll out of view (within this share of the viewport edge). */
+  const POINT_EXIT_MARGIN = "-5% 0px -5% 0px";
+  const POINT_EXIT_COOLDOWN_MS = 8000;
+  /** Anger: ANGER_CLICKS clicks/taps on him within ANGER_CLICK_WINDOW_MS ... */
+  const ANGER_CLICKS = 5;
+  const ANGER_CLICK_WINDOW_MS = 2500;
+  /** ... or pointer moving over him faster than ANGER_SPEED_PX_PER_MS averaged over the window. */
+  const ANGER_SPEED_PX_PER_MS = 2.5;
+  const ANGER_SPEED_WINDOW_MS = 150;
+  /** Angry cools off after this long without further provocation (provocation extends it). */
+  const ANGRY_COOLDOWN_S = 3;
+  /** No page input (pointer, scroll, keys, touch) for this long while in OK/whistle: he dozes off. */
+  const SLEEPY_AFTER_S = 40;
+  /** Page input restarts the sleepy countdown at most this often (any input still wakes him at once). */
+  const SLEEPY_INPUT_THROTTLE_MS = 500;
+  /** First pointer entry on him per page view: "oh!" beat; again only after this gap. */
+  const SURPRISE_COOLDOWN_MS = 60000;
+
+  // ---------------- geometry (shared coordinate space, see meArt.ts) ----------------
+  const FEET = "56 172";
+  const NECK = "50 50";
+  const MOUTH_O = "55 35";
+  const SNAP = { antic: 0.05, down: 0.07, neutralHold: 0.06, settle: 0.45 };
+  const BEAT = 0.42;
+
+  const BROW_ANGRY = {
+    L: "M42.9 13.6C44.3 14.1 45.9 14.9 47.6 16.2",
+    R: "M56.9 15.8C58.2 14.5 59.5 13.6 61.1 13.0",
+  };
+  // Frown: the grin outline becomes the arch, the teeth line slides onto its left part.
+  const FROWN_GRIN = "M60.6 40.8C59 37.6 51 37.6 49.4 40.8C50.04 39.52 51.704 38.752 53.573 38.496";
+  const FROWN_TONGUE = "M53.6 39.2C54.2 39 54.8 39 55.4 39.2";
+  // Whistle: a small puckered "o" pushed to one side + short pursed upper lip.
+  const WO = { x: 57.6, y: 39.4, rx: 1.5, ry: 1.8 };
+  const WHISTLE_GRIN =
+    `M${WO.x + WO.rx} ${WO.y}C${WO.x + WO.rx} ${WO.y + WO.ry * 1.33} ${WO.x - WO.rx} ${WO.y + WO.ry * 1.33} ${WO.x - WO.rx} ${WO.y}` +
+    `C${WO.x - WO.rx} ${WO.y - WO.ry * 1.33} ${WO.x + WO.rx} ${WO.y - WO.ry * 1.33} ${WO.x + WO.rx} ${WO.y}`;
+  const WHISTLE_LIP = "M55.4 36.3C56.4 35.5 58.6 35.4 59.8 36.2";
+  const WHISTLE_TONGUE = `M${WO.x - 0.3} ${WO.y}C${WO.x - 0.1} ${WO.y} ${WO.x + 0.1} ${WO.y} ${WO.x + 0.3} ${WO.y}`;
+  // Sleepy: brows droop (outer ends down), small closed mouth (frown technique, gentle sag).
+  const BROW_SLEEPY = {
+    L: "M42.6 15.9C44.1 14.9 46.1 14.4 47.6 14.6",
+    R: "M57 14.2C58.5 14.1 60 14.6 61.3 15.7",
+  };
+  const SLEEPY_GRIN =
+    "M58.4 40.3C57.2 41.3 52.8 41.3 51.6 40.3C52.08 40.7 53.072 40.94 54.166 41.02";
+  const SLEEPY_TONGUE = "M54.4 40.8C54.8 40.9 55.2 40.9 55.6 40.8";
+  // Round mouths (whistle technique): grin outline = lower half, teeth line = upper half.
+  const ovalMouth = (x: number, y: number, rx: number, ry: number) =>
+    `M${x + rx} ${y}C${x + rx} ${y + ry * 1.33} ${x - rx} ${y + ry * 1.33} ${x - rx} ${y}` +
+    `C${x - rx} ${y - ry * 1.33} ${x + rx} ${y - ry * 1.33} ${x + rx} ${y}`;
+  const YAWN_GRIN = ovalMouth(55.2, 40.6, 3.3, 4.1);
+  const OH_GRIN = ovalMouth(55.6, 39.6, 1.4, 1.7);
+  /** Stroked "z" for dozing, floated with the notes pool. */
+  const Z_D = "M-1.3-1.3H1.3L-1.3 1.3H1.3";
+  // Stroked music notes (eighth note, beamed pair), origin at the first note head.
+  const NOTE_HEAD = "C-1.1-0.55 0.15-1 0.95-0.6C1.55-0.25 1.2 0.8 0.1 0.9C-0.6 1-1.1 0.7-1.1 0.25Z";
+  const NOTES = [
+    `M-1.1 0.25${NOTE_HEAD}M1.05-0.3V-5.6C1.5-4.3 3.3-4 2.7-2.3`,
+    `M-1.1 0.25${NOTE_HEAD}M2.5-0.55C2.5-1.35 3.75-1.8 4.55-1.4C5.15-1.05 4.8 0 3.7 0.1C3 0.2 2.5-0.1 2.5-0.55ZM1.05-0.3V-5.6L4.65-6.4V-1.1`,
+  ];
+  const NOTE_FROM: Pt = [60.2, 38.6];
+
+  type MoodSpec = {
+    pose: string;
+    brows: "normal" | "angry" | "sleepy";
+    browY: number;
+    mouth: "grin" | "frown" | "whistle" | "sleepy";
+    tilt: number;
+  };
+  const MOODS: Record<Mood, MoodSpec> = {
+    ok: { pose: "ok", brows: "normal", browY: 0, mouth: "grin", tilt: 0 },
+    neutral: { pose: "neutral", brows: "normal", browY: 0, mouth: "grin", tilt: 0 },
+    point: { pose: "point", brows: "normal", browY: -0.9, mouth: "grin", tilt: 1 },
+    angry: { pose: "angry", brows: "angry", browY: 0, mouth: "frown", tilt: 0 },
+    whistle: { pose: "neutral", brows: "normal", browY: -0.5, mouth: "whistle", tilt: 0 },
+    sleepy: { pose: "neutral", brows: "sleepy", browY: 0, mouth: "sleepy", tilt: 0 },
+  };
+
+  // ---------------- limb rig ----------------
+  // A "bone": points blend toward a rotated/scaled/pushed copy with a weight that ramps from 0 at
+  // the joint to 1 at the hand, so the joint never moves and the forearm lines stretch.
+  type Seg = { c: string; p: Pt[] };
+  type RigParams = { rot: number; push: number; scale: number; aim: number; idle: number };
+  type Rig = {
+    E: Pt;
+    u: Pt;
+    a: number;
+    b: number;
+    dx: number;
+    aimRot: number;
+    aimPush: number;
+    idleRot: number;
+    p: RigParams;
+    parts: { el: SVGPathElement; segs: Seg[]; fade: boolean }[];
+    key: string;
+  };
+  const RIG_CONFIG: Record<string, Omit<Rig, "p" | "parts" | "key">> = {
+    thumb: { E: [94, 84], u: [11, -44], a: 4, b: 24, dx: 0, aimRot: 0, aimPush: 0, idleRot: 0.8 },
+    pointR: {
+      E: [97, 84],
+      u: [35, -24],
+      a: 12,
+      b: 33,
+      dx: POINT_DX,
+      aimRot: -1.2,
+      aimPush: 0.5,
+      idleRot: 0,
+    },
+    pointL: {
+      E: [22, 97],
+      u: [62, -29],
+      a: 3,
+      b: 45,
+      dx: POINT_DX,
+      aimRot: -0.8,
+      aimPush: 0.4,
+      idleRot: 0,
+    },
+  };
+  const REST: RigParams = { rot: 0, push: 0, scale: 1, aim: 0, idle: 0 };
+
+  function parseD(d: string): Seg[] {
+    const tokens = d.match(/[MLHVCZ]|-?\d*\.?\d+(?:e-?\d+)?/g) ?? [];
+    const segs: Seg[] = [];
+    let cmd = "";
+    let buf: number[] = [];
+    let cur: Pt = [0, 0];
+    for (const k of tokens) {
+      if (/[A-Z]/.test(k)) {
+        cmd = k;
+        buf = [];
+        if (k === "Z") segs.push({ c: "Z", p: [] });
+        continue;
+      }
+      buf.push(+k);
+      if (cmd === "H") ((cur = [buf[0], cur[1]]), segs.push({ c: "L", p: [cur] }), (buf = []));
+      else if (cmd === "V") ((cur = [cur[0], buf[0]]), segs.push({ c: "L", p: [cur] }), (buf = []));
+      else if ((cmd === "M" || cmd === "L") && buf.length === 2) {
+        cur = [buf[0], buf[1]];
+        segs.push({ c: cmd, p: [cur] });
+        buf = [];
+        if (cmd === "M") cmd = "L";
+      } else if (cmd === "C" && buf.length === 6) {
+        cur = [buf[4], buf[5]];
+        segs.push({ c: "C", p: [[buf[0], buf[1]], [buf[2], buf[3]], cur] });
+        buf = [];
+      }
+    }
+    return segs;
+  }
+  const f3 = (v: number) => Math.round(v * 1000) / 1000;
+
+  function drawRig(rig: Rig) {
+    const { E, u, a, b, dx, p } = rig;
+    const key = `${p.rot},${p.push},${p.scale},${p.aim},${p.idle}`;
+    if (key === rig.key) return;
+    rig.key = key;
+    const th = ((p.rot + p.aim * rig.aimRot + p.idle * rig.idleRot) * Math.PI) / 180;
+    const push = p.push + p.aim * rig.aimPush;
+    const c = Math.cos(th) * p.scale;
+    const s = Math.sin(th) * p.scale;
+    const xf = (q: Pt, m: number) => {
+      const x = q[0] + dx;
+      const rx = x - E[0];
+      const ry = q[1] - E[1];
+      let w = Math.min(1, Math.max(0, (rx * u[0] + ry * u[1] - a) / (b - a)));
+      w = w * w * (3 - 2 * w) * m;
+      const tx = E[0] + rx * c - ry * s + push * u[0];
+      const ty = E[1] + rx * s + ry * c + push * u[1];
+      return `${f3(x + w * (tx - x) - dx)} ${f3(q[1] + w * (ty - q[1]))}`;
+    };
+    for (const part of rig.parts) {
+      const n = Math.max(1, part.segs.length - 1);
+      part.el.setAttribute(
+        "d",
+        part.segs
+          .map((sg, i) => sg.c + sg.p.map((q) => xf(q, part.fade ? i / n : 1)).join(" "))
+          .join(""),
+      );
+    }
+  }
+
+  const rand = (min: number, max: number) => min + Math.random() * (max - min);
+
+  // ---------------- character ----------------
+  class MeCharacter {
+    private svg: SVGSVGElement;
+    private el: Record<string, SVGGraphicsElement> = {};
+    private glints: SVGPathElement[];
+    private notes: SVGPathElement[] = [];
+    private noteN = 0;
+    private poses: Record<string, SVGGElement> = {};
+    private rigs: Record<string, Rig> = {};
+    private face: Record<string, string> = {};
+    private clock: Timeline;
+    private mood: Mood = "ok";
+    private transitioning = false;
+    private queued: Mood | null = null;
+    private hold: Timeline | null = null;
+    private beat: Timeline | null = null;
+    private timers: Record<string, Tween | null> = {};
+    private hoverCount = 0;
+    private clicks: number[] = [];
+    private moves: { t: number; x: number; y: number }[] = [];
+    private lastScrollPoint = -Infinity;
+    private onScreen = true;
+    private lastSurprise = -Infinity;
+    private lastInputReset = -Infinity;
+    private wokeUp = false;
+    /** Seconds without input before dozing off (instance copy so automation can shorten it). */
+    sleepyAfterS = SLEEPY_AFTER_S;
+    private cleanups: (() => void)[] = [];
+
+    constructor(svg: SVGSVGElement) {
+      this.svg = svg;
+      svg.querySelectorAll<SVGGraphicsElement>("[data-me-el]").forEach((n) => {
+        this.el[n.dataset.meEl!] = n;
+      });
+      this.glints = [...svg.querySelectorAll<SVGPathElement>('[data-me-el="glint"]')];
+      svg.querySelectorAll<SVGGElement>("[data-me-pose]").forEach((g) => {
+        this.poses[g.dataset.mePose!] = g;
+      });
+      for (const [name, cfg] of Object.entries(RIG_CONFIG)) {
+        const len = Math.hypot(cfg.u[0], cfg.u[1]);
+        this.rigs[name] = {
+          ...cfg,
+          u: [cfg.u[0] / len, cfg.u[1] / len],
+          p: { ...REST },
+          parts: [],
+          key: "",
+        };
+      }
+      svg.querySelectorAll<SVGPathElement>("[data-me-rig]").forEach((path) => {
+        this.rigs[path.dataset.meRig!].parts.push({
+          el: path,
+          segs: parseD(path.getAttribute("d")!),
+          fade: path.hasAttribute("data-me-fade"),
+        });
+      });
+      for (const k of ["browL", "browR", "lip", "grin", "tongue"])
+        this.face[k] = this.el[k].getAttribute("d")!;
+      const NS = "http://www.w3.org/2000/svg";
+      for (let i = 0; i < 4; i++) {
+        const p = document.createElementNS(NS, "path");
+        p.setAttribute("d", NOTES[i % 2]);
+        p.style.opacity = "0";
+        this.el.notes.appendChild(p);
+        this.notes.push(p);
+      }
+
+      // Every tween/timer lives in this clock so pausing it pauses the whole character.
+      this.clock = gsap.timeline({ autoRemoveChildren: true, onUpdate: () => this.draw() });
+      this.clock.to({}, { duration: 1e7 }, 0);
+      this.breathing();
+      this.startHold();
+      this.listen();
+      this.restartSleepTimer();
+    }
+
+    // ---------- plumbing ----------
+    private run<T extends Timeline | Tween>(anim: T): T {
+      this.clock.add(anim, this.clock.time());
+      return anim;
+    }
+    private after(name: string, seconds: number, fn: () => void) {
+      this.timers[name]?.kill();
+      this.timers[name] = this.run(
+        gsap.delayedCall(seconds, () => {
+          this.timers[name] = null;
+          fn();
+        }),
+      );
+    }
+    private cancel(...names: string[]) {
+      for (const n of names) {
+        this.timers[n]?.kill();
+        this.timers[n] = null;
+      }
+    }
+    private draw() {
+      for (const r of Object.values(this.rigs)) drawRig(r);
+    }
+    private setRunning() {
+      if (this.onScreen && !document.hidden) this.clock.resume();
+      else this.clock.pause();
+    }
+
+    // ---------- mood state machine ----------
+    /** Highest priority: anger. Any provocation (re)starts the cool-off timer. */
+    provoke() {
+      this.cancel("spell", "pointRelease");
+      this.after("cool", ANGRY_COOLDOWN_S, () => this.goTo("ok"));
+      this.goTo("angry");
+    }
+    /** Lower-priority requests are ignored while he is (or is about to be) angry. */
+    request(target: Mood, spellSeconds?: number) {
+      if (this.mood === "angry" || this.queued === "angry") return;
+      this.cancel("spell");
+      if (spellSeconds) this.after("spell", spellSeconds, () => this.request("ok"));
+      this.goTo(target);
+    }
+
+    private goTo(target: Mood) {
+      if (this.transitioning) {
+        this.queued = target; // applied once the current snap finishes
+        return;
+      }
+      if (target === this.mood) return;
+      const from = this.mood;
+      this.stopActivity();
+      this.mood = target;
+      this.transitioning = true;
+      const tl = gsap.timeline({ onComplete: () => this.arrived() });
+      this.resetPose(tl, MOODS[from]);
+      this.transition(tl, 0, from, target);
+      this.run(tl);
+    }
+    private arrived() {
+      this.transitioning = false;
+      const q = this.queued;
+      this.queued = null;
+      if (q && q !== this.mood) this.goTo(q);
+      else this.startHold();
+    }
+    private stopActivity() {
+      this.hold?.kill();
+      this.beat?.kill();
+      this.hold = this.beat = null;
+      this.cancel("idleBeat", "idleSpell");
+    }
+    /** Return everything an interrupted beat/hold may have left mid-way to rest. */
+    private resetPose(tl: Timeline, from: MoodSpec) {
+      const d = 0.08;
+      const [grin, tongue, lip] = this.mouthShapes(from.mouth);
+      const brows = this.browShapes(from.brows);
+      const morph = (el: Element, shape: string) =>
+        tl.to(el, { morphSVG: { shape, type: "linear" }, duration: d }, 0);
+      morph(this.el.grin, grin);
+      morph(this.el.tongue, tongue);
+      morph(this.el.lip, lip);
+      morph(this.el.browL, brows.L);
+      morph(this.el.browR, brows.R);
+      tl.to([this.el.browL, this.el.browR], { y: from.browY, duration: d }, 0)
+        .to(this.el.tongue, { opacity: from.mouth === "grin" ? 1 : 0, duration: d }, 0)
+        .to(this.el.nudge, { y: 0, duration: d }, 0)
+        .to(this.el.exhale, { scaleX: 1, scaleY: 1, svgOrigin: FEET, duration: d }, 0);
+      for (const r of Object.values(this.rigs))
+        tl.to(r.p, { rot: 0, push: 0, scale: 1, aim: 0, duration: d }, 0);
+      // Killing the whistle hold doesn't interrupt its note tweens, so clear any note still in the air.
+      tl.to(this.notes, { opacity: 0, duration: 0.25 }, 0);
+      tl.to(this.el.lean, { scale: 1, svgOrigin: FEET, duration: d }, 0)
+        .to(this.el.head, { rotation: 0, svgOrigin: NECK, duration: d }, 0)
+        .to(this.el.headTilt, { y: 0, duration: d }, 0)
+        .to(this.el.mouthAct, { scale: 1, rotation: 0, svgOrigin: MOUTH_O, duration: d }, 0)
+        .to(this.glints, { opacity: 0, duration: d }, 0);
+    }
+
+    private showPose(tl: Timeline, t: number, pose: string) {
+      for (const [name, g] of Object.entries(this.poses))
+        tl.set(g, { attr: { visibility: name === pose ? "visible" : "hidden" } }, t);
+    }
+    /** Squash from the feet, instant pose swap at the bottom, head follow-through, settle. */
+    private snap(tl: Timeline, t: number, pose: string, final: boolean) {
+      const sq = this.el.squash;
+      const hf = this.el.headFollow;
+      tl.to(
+        sq,
+        { scaleY: 0.96, scaleX: 1.03, svgOrigin: FEET, duration: SNAP.down, ease: "power2.in" },
+        t,
+      );
+      const swap = t + SNAP.down;
+      this.showPose(tl, swap, pose);
+      tl.to(
+        hf,
+        { rotation: final ? -1.2 : -0.7, svgOrigin: NECK, duration: 0.07, ease: "power2.out" },
+        swap,
+      ).to(
+        hf,
+        {
+          rotation: 0,
+          svgOrigin: NECK,
+          duration: final ? 0.5 : 0.1,
+          ease: final ? "elastic.out(1, 0.4)" : "power1.inOut",
+        },
+        swap + 0.07,
+      );
+      if (final)
+        tl.to(
+          sq,
+          {
+            scaleY: 1,
+            scaleX: 1,
+            svgOrigin: FEET,
+            duration: SNAP.settle,
+            ease: "elastic.out(1, 0.45)",
+          },
+          swap,
+        );
+      else
+        tl.to(
+          sq,
+          {
+            scaleY: 0.985,
+            scaleX: 1.012,
+            svgOrigin: FEET,
+            duration: SNAP.neutralHold,
+            ease: "power1.out",
+          },
+          swap,
+        );
+      return swap;
+    }
+    /** current -> NEUTRAL -> target: anticipation + snaps, face morphs in parallel. */
+    private transition(tl: Timeline, t: number, from: Mood, to: Mood) {
+      const a = MOODS[from];
+      const b = MOODS[to];
+      tl.to(
+        this.el.squash,
+        { scaleY: 1.012, scaleX: 0.993, svgOrigin: FEET, duration: SNAP.antic, ease: "sine.out" },
+        t,
+      );
+      const t1 = t + SNAP.antic;
+      const viaNeutral = a.pose !== "neutral" && b.pose !== "neutral";
+      if (viaNeutral) this.snap(tl, t1, "neutral", false);
+      const arrive = this.snap(
+        tl,
+        viaNeutral ? t1 + SNAP.down + SNAP.neutralHold : t1,
+        b.pose,
+        true,
+      );
+      this.brows(tl, t1 + 0.03, a, b, from === "sleepy");
+      this.mouth(tl, t1 + 0.03, a.mouth, b.mouth);
+      if (from === "sleepy") this.wakeJolt(tl, t);
+      tl.to(
+        this.el.headTilt,
+        { rotation: b.tilt, svgOrigin: NECK, duration: 0.4, ease: "power2.inOut" },
+        arrive,
+      );
+      if (from === "angry") this.exhale(tl, arrive + 0.12);
+    }
+    private browShapes(kind: MoodSpec["brows"]) {
+      return kind === "angry"
+        ? BROW_ANGRY
+        : kind === "sleepy"
+          ? BROW_SLEEPY
+          : { L: this.face.browL, R: this.face.browR };
+    }
+    /** [grin, tongue, lip] shapes for a mouth kind. */
+    private mouthShapes(kind: MoodSpec["mouth"]): [string, string, string] {
+      if (kind === "frown") return [FROWN_GRIN, FROWN_TONGUE, this.face.lip];
+      if (kind === "whistle") return [WHISTLE_GRIN, WHISTLE_TONGUE, WHISTLE_LIP];
+      if (kind === "sleepy") return [SLEEPY_GRIN, SLEEPY_TONGUE, this.face.lip];
+      return [this.face.grin, this.face.tongue, this.face.lip];
+    }
+    private brows(tl: Timeline, t: number, a: MoodSpec, b: MoodSpec, skipY = false) {
+      const L = this.el.browL;
+      const R = this.el.browR;
+      if (a.brows !== b.brows) {
+        const ease = b.brows === "angry" || a.brows === "sleepy" ? "back.out(2)" : "power2.inOut";
+        const shape = this.browShapes(b.brows);
+        tl.to(L, { morphSVG: { shape: shape.L, type: "linear" }, duration: 0.22, ease }, t).to(
+          R,
+          { morphSVG: { shape: shape.R, type: "linear" }, duration: 0.22, ease },
+          t,
+        );
+      }
+      if (!skipY)
+        tl.to(
+          [L, R],
+          { y: b.browY, duration: 0.25, ease: b.browY < 0 ? "back.out(2)" : "power2.inOut" },
+          t,
+        );
+    }
+    private mouth(tl: Timeline, t: number, a: MoodSpec["mouth"], b: MoodSpec["mouth"]) {
+      if (a === b) return;
+      const { grin, tongue, lip, mouthAct } = this.el;
+      const morph = (el: Element, shape: string, d: number, ease: string, at = t) =>
+        tl.to(el, { morphSVG: { shape, type: "linear" }, duration: d, ease }, at);
+      if (b === "grin") {
+        // anticipation: the mouth pinches narrower, then widens into the grin
+        tl.to(
+          mouthAct,
+          { scaleX: 0.82, svgOrigin: MOUTH_O, duration: 0.08, ease: "power2.out" },
+          t + 0.06,
+        ).to(
+          mouthAct,
+          { scaleX: 1, svgOrigin: MOUTH_O, duration: 0.35, ease: "back.out(2.2)" },
+          t + 0.14,
+        );
+        morph(grin, this.face.grin, 0.32, "power2.inOut", t + 0.06);
+        morph(lip, this.face.lip, 0.32, "power2.inOut", t + 0.06);
+        morph(tongue, this.face.tongue, 0.3, "power2.inOut", t + 0.06);
+        tl.to(tongue, { opacity: 1, duration: 0.1, ease: "none" }, t + 0.34); // only once open
+      } else {
+        // the tongue line leaves first so nothing collapses into a filled-looking blob
+        tl.set(tongue, { opacity: 0 }, t);
+        const [g, tg, lp] = this.mouthShapes(b);
+        morph(tongue, tg, 0.12, "power2.in");
+        morph(grin, g, 0.28, "sine.inOut");
+        morph(lip, lp, 0.28, "sine.inOut");
+      }
+    }
+
+    // ---------- holds (what he does while in a mood) ----------
+    private startHold() {
+      const hold = gsap.timeline();
+      if (this.mood === "ok") {
+        if (this.wokeUp) {
+          this.wokeUp = false;
+          const tl = gsap.timeline();
+          this.thumbPush(tl, 0.1);
+          this.beat = this.run(tl);
+        }
+        this.scheduleIdleBeat();
+        this.after("idleSpell", rand(IDLE_SPELL_MIN_S, IDLE_SPELL_MAX_S), () => {
+          if (Math.random() < IDLE_POINT_CHANCE) this.request("point", POINT_SPELL_S);
+          else this.request("whistle", rand(WHISTLE_SPELL_MIN_S, WHISTLE_SPELL_MAX_S));
+        });
+      } else if (this.mood === "point") {
+        const loop = gsap.timeline({ repeat: -1 });
+        this.jab(loop, 0.2);
+        this.browFlash(loop, 0.2, 0.5);
+        loop.to({}, { duration: 1.4 }, 0);
+        hold.add(loop, 0);
+        for (const [r, off] of [
+          ["pointR", 0],
+          ["pointL", 0.05],
+        ] as const)
+          hold.to(
+            this.rigs[r].p,
+            { aim: 1, duration: 0.45, ease: "sine.inOut", repeat: -1, yoyo: true },
+            off,
+          );
+      } else if (this.mood === "angry") {
+        const loop = gsap.timeline({ repeat: -1, repeatDelay: 0.6 });
+        this.hmph(loop, 0.25);
+        this.headShake(loop, 0.75);
+        this.grumble(loop, 1.4);
+        loop.to({}, { duration: 2 }, 0);
+        hold.add(loop, 0);
+        if (!this.timers.cool) this.after("cool", ANGRY_COOLDOWN_S, () => this.goTo("ok"));
+      } else if (this.mood === "whistle") {
+        this.whistle(hold);
+      } else if (this.mood === "sleepy") {
+        this.sleepy(hold);
+      }
+      this.hold = this.run(hold);
+    }
+    private scheduleIdleBeat() {
+      this.after("idleBeat", rand(IDLE_BEAT_MIN_S, IDLE_BEAT_MAX_S), () => {
+        if (this.mood !== "ok" || this.transitioning) return;
+        const tl = gsap.timeline();
+        this.settleBeat(tl);
+        const pick = Math.floor(Math.random() * 4);
+        if (pick === 0) this.thumbPush(tl, 0);
+        else if (pick === 1) this.chuckle(tl, 0);
+        else if (pick === 2) this.browFlash(tl, 0);
+        else this.glint(tl, 0);
+        this.beat?.kill();
+        this.beat = this.run(tl);
+        this.scheduleIdleBeat();
+      });
+    }
+
+    // ---------- beats ----------
+    private breathing() {
+      const o = { duration: 1.25, ease: "sine.inOut", repeat: -1, yoyo: true };
+      this.run(gsap.to(this.el.breath, { scaleY: 1.01, svgOrigin: FEET, ...o }));
+      this.run(
+        gsap.to(this.el.mouthBreath, { scaleX: 1.05, scaleY: 1.07, svgOrigin: MOUTH_O, ...o }),
+      );
+      this.run(gsap.to(this.rigs.thumb.p, { idle: 1, ...o }));
+    }
+    private browFlash(tl: Timeline, t: number, amt = 0.8) {
+      const els = [this.el.browL, this.el.browR];
+      tl.to(els, { y: `-=${amt}`, duration: 0.08, ease: "power2.out" }, t).to(
+        els,
+        { y: `+=${amt}`, duration: 0.25, ease: "power2.inOut" },
+        t + 0.16,
+      );
+    }
+    private glint(tl: Timeline, t: number) {
+      this.glints.forEach((g, i) =>
+        tl
+          .to(g, { opacity: 1, duration: 0.05, ease: "none" }, t + i * 0.035)
+          .to(g, { opacity: 0, duration: 0.12, ease: "power1.in" }, t + i * 0.035 + 0.05),
+      );
+    }
+    private thumbPush(tl: Timeline, t: number) {
+      const p = this.rigs.thumb.p;
+      tl.to(p, { scale: 1.2, rot: 2, duration: 0.15, ease: "power3.out" }, t)
+        .to(p, { scale: 1, rot: 0, duration: 0.55, ease: "elastic.out(1, 0.5)" }, t + 0.45)
+        .to(this.el.lean, { scale: 1.015, svgOrigin: FEET, duration: 0.18, ease: "power2.out" }, t)
+        .to(
+          this.el.lean,
+          { scale: 1, svgOrigin: FEET, duration: 0.5, ease: "power2.inOut" },
+          t + 0.45,
+        );
+      this.browFlash(tl, t + 0.02);
+      this.glint(tl, t + 0.12);
+    }
+    private jab(tl: Timeline, t: number) {
+      for (const [r, off, push, rot] of [
+        ["pointR", 0, 2.4, -2.5],
+        ["pointL", 0.06, 2, -1.5],
+      ] as const) {
+        const p = this.rigs[r].p;
+        tl.to(p, { push, rot, duration: 0.08, ease: "power3.out" }, t + off).to(
+          p,
+          { push: 0, rot: 0, duration: 0.45, ease: "elastic.out(1, 0.5)" },
+          t + off + 0.1,
+        );
+      }
+    }
+    private chuckle(tl: Timeline, t: number) {
+      const act = this.el.mouthAct;
+      const head = this.el.headTilt;
+      [1.16, 1.12, 1.07].forEach((amp, i) => {
+        const o = t + i * 0.15;
+        tl.to(act, { scaleY: amp, svgOrigin: MOUTH_O, duration: 0.06, ease: "power2.out" }, o)
+          .to(
+            act,
+            { scaleY: 0.96, svgOrigin: MOUTH_O, duration: 0.08, ease: "power2.in" },
+            o + 0.06,
+          )
+          .to(head, { y: -0.4, duration: 0.06, ease: "power2.out" }, o)
+          .to(head, { y: 0, duration: 0.08, ease: "power2.in" }, o + 0.06);
+      });
+      tl.to(act, { scaleY: 1, svgOrigin: MOUTH_O, duration: 0.2, ease: "power2.out" }, t + 0.44);
+      this.browFlash(tl, t, 0.5);
+    }
+    private hmph(tl: Timeline, t: number) {
+      const sq = this.el.squash;
+      const act = this.el.mouthAct;
+      tl.to(
+        sq,
+        { scaleY: 0.985, scaleX: 1.01, svgOrigin: FEET, duration: 0.1, ease: "power2.out" },
+        t,
+      )
+        .to(
+          sq,
+          { scaleY: 1, scaleX: 1, svgOrigin: FEET, duration: 0.35, ease: "back.out(2)" },
+          t + 0.1,
+        )
+        .to(
+          act,
+          { scaleX: 0.8, scaleY: 0.9, svgOrigin: MOUTH_O, duration: 0.1, ease: "power2.out" },
+          t,
+        )
+        .to(
+          act,
+          { scaleX: 1, scaleY: 1, svgOrigin: MOUTH_O, duration: 0.5, ease: "power2.inOut" },
+          t + 0.45,
+        );
+    }
+    private grumble(tl: Timeline, t: number) {
+      [3, -3, 2.5, -2, 0].forEach((r, i) =>
+        tl.to(
+          this.el.mouthAct,
+          { rotation: r, svgOrigin: MOUTH_O, duration: 0.07, ease: "sine.inOut" },
+          t + i * 0.07,
+        ),
+      );
+    }
+    private headShake(tl: Timeline, t: number) {
+      let at = t;
+      for (const [r, d] of [
+        [2.2, 0.08],
+        [-2.2, 0.12],
+        [1.5, 0.11],
+        [-0.8, 0.1],
+        [0, 0.12],
+      ]) {
+        tl.to(this.el.head, { rotation: r, svgOrigin: NECK, duration: d, ease: "sine.inOut" }, at);
+        at += d;
+      }
+    }
+    private exhale(tl: Timeline, t: number) {
+      const e = this.el.exhale;
+      tl.to(
+        e,
+        { scaleY: 0.982, scaleX: 1.006, svgOrigin: FEET, duration: 0.3, ease: "sine.out" },
+        t,
+      ).to(
+        e,
+        { scaleY: 1, scaleX: 1, svgOrigin: FEET, duration: 0.6, ease: "sine.inOut" },
+        t + 0.3,
+      );
+    }
+    /** Snap anything a killed beat left mid-way (relative brow flashes, chuckle, glint) back to rest. */
+    private settleBeat(tl: Timeline) {
+      const d = 0.06;
+      tl.to([this.el.browL, this.el.browR], { y: MOODS[this.mood].browY, duration: d }, 0)
+        .to(this.el.mouthAct, { scale: 1, rotation: 0, svgOrigin: MOUTH_O, duration: d }, 0)
+        .to(this.el.headTilt, { y: 0, duration: d }, 0)
+        .to(this.el.head, { rotation: 0, svgOrigin: NECK, duration: d }, 0)
+        .to(this.el.lean, { scale: 1, svgOrigin: FEET, duration: d }, 0)
+        .to(this.rigs.thumb.p, { rot: 0, scale: 1, duration: d }, 0)
+        .to(this.glints, { opacity: 0, duration: d }, 0);
+    }
+    /** "oh!": brows shoot up, small round mouth, lean back, then grin + thumb push. */
+    private surprise(tl: Timeline, t: number) {
+      const { grin, tongue, mouthAct, head, lean } = this.el;
+      const brows = [this.el.browL, this.el.browR];
+      tl.set(tongue, { opacity: 0 }, t)
+        .to(
+          grin,
+          { morphSVG: { shape: OH_GRIN, type: "linear" }, duration: 0.12, ease: "power2.out" },
+          t,
+        )
+        .to(tongue, { morphSVG: { shape: WHISTLE_TONGUE, type: "linear" }, duration: 0.1 }, t)
+        .to(brows, { y: -1.7, duration: 0.09, ease: "back.out(3)" }, t)
+        .to(head, { rotation: -2, svgOrigin: NECK, duration: 0.1, ease: "power2.out" }, t)
+        .to(
+          lean,
+          { scaleY: 0.99, scaleX: 1.004, svgOrigin: FEET, duration: 0.1, ease: "power2.out" },
+          t,
+        )
+        .to(head, { rotation: 0, svgOrigin: NECK, duration: 0.4, ease: "back.out(2)" }, t + 0.5)
+        .to(
+          lean,
+          { scaleY: 1, scaleX: 1, svgOrigin: FEET, duration: 0.3, ease: "power2.out" },
+          t + 0.5,
+        )
+        .to(brows, { y: 0, duration: 0.35, ease: "power2.inOut" }, t + 0.55)
+        .to(
+          mouthAct,
+          { scaleX: 0.82, svgOrigin: MOUTH_O, duration: 0.06, ease: "power2.out" },
+          t + 0.5,
+        )
+        .to(
+          mouthAct,
+          { scaleX: 1, svgOrigin: MOUTH_O, duration: 0.35, ease: "back.out(2.2)" },
+          t + 0.56,
+        )
+        .to(
+          grin,
+          {
+            morphSVG: { shape: this.face.grin, type: "linear" },
+            duration: 0.3,
+            ease: "power2.inOut",
+          },
+          t + 0.5,
+        )
+        .to(
+          tongue,
+          { morphSVG: { shape: this.face.tongue, type: "linear" }, duration: 0.25 },
+          t + 0.5,
+        )
+        .to(tongue, { opacity: 1, duration: 0.1 }, t + 0.75);
+      this.thumbPush(tl, t + 0.6);
+    }
+    /** Woken up: small hop + brows shoot up (the thumb push follows once he is back in OK). */
+    private wakeJolt(tl: Timeline, t: number) {
+      const brows = [this.el.browL, this.el.browR];
+      tl.to(this.el.nudge, { y: -3, duration: 0.1, ease: "power2.out" }, t)
+        .to(this.el.nudge, { y: 0, duration: 0.35, ease: "bounce.out" }, t + 0.1)
+        .to(brows, { y: -1.6, duration: 0.08, ease: "power2.out" }, t + 0.02)
+        .to(brows, { y: 0, duration: 0.4, ease: "power2.inOut" }, t + 0.45);
+      this.wokeUp = true;
+    }
+    /** Sleepy hold: slow deep breathing, dozing nods, floating z's and a big yawn now and then. */
+    private sleepy(hold: Timeline) {
+      hold.to(
+        this.el.exhale,
+        {
+          scaleY: 1.015,
+          svgOrigin: FEET,
+          duration: 1.6,
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+        },
+        0,
+      );
+      const loop = gsap.timeline({ repeat: -1 });
+      this.doze(loop, 0.4);
+      this.zee(loop, 0.8, 0);
+      this.zee(loop, 2.2, 1);
+      this.doze(loop, 2.9);
+      this.yawn(loop, 5.0);
+      this.zee(loop, 7.6, 2);
+      loop.to({}, { duration: 9 }, 0);
+      hold.add(loop, 0);
+    }
+    private doze(tl: Timeline, t: number) {
+      const h = this.el.headTilt;
+      tl.to(
+        h,
+        { rotation: 2.5, y: 0.35, svgOrigin: NECK, duration: 1.6, ease: "sine.inOut" },
+        t,
+      ).to(h, { rotation: 0, y: 0, svgOrigin: NECK, duration: 0.16, ease: "back.out(3)" }, t + 1.6);
+    }
+    private yawn(tl: Timeline, t: number) {
+      const { grin, lean, mouthAct, headTilt, browL, browR } = this.el;
+      const brows = [browL, browR];
+      const m = (el: Element, shape: string, d: number, ease: string, at: number) =>
+        tl.to(el, { morphSVG: { shape, type: "linear" }, duration: d, ease }, at);
+      m(grin, YAWN_GRIN, 0.5, "power2.out", t);
+      m(browL, this.face.browL, 0.4, "power2.out", t);
+      m(browR, this.face.browR, 0.4, "power2.out", t);
+      tl.to(brows, { y: -1.1, duration: 0.45, ease: "power2.out" }, t)
+        .to(
+          lean,
+          { scaleY: 1.025, scaleX: 0.992, svgOrigin: FEET, duration: 0.6, ease: "sine.out" },
+          t,
+        )
+        .to(headTilt, { rotation: -2, svgOrigin: NECK, duration: 0.6, ease: "sine.out" }, t)
+        .to(
+          mouthAct,
+          {
+            scaleY: 1.08,
+            svgOrigin: MOUTH_O,
+            duration: 0.45,
+            ease: "sine.inOut",
+            repeat: 1,
+            yoyo: true,
+          },
+          t + 0.5,
+        )
+        .to(brows, { y: 0, duration: 0.5, ease: "sine.inOut" }, t + 1.5)
+        .to(
+          lean,
+          { scaleY: 1, scaleX: 1, svgOrigin: FEET, duration: 0.7, ease: "sine.inOut" },
+          t + 1.5,
+        )
+        .to(headTilt, { rotation: 0, svgOrigin: NECK, duration: 0.7, ease: "sine.inOut" }, t + 1.5);
+      m(grin, SLEEPY_GRIN, 0.45, "sine.inOut", t + 1.5);
+      m(browL, BROW_SLEEPY.L, 0.5, "sine.inOut", t + 1.5);
+      m(browR, BROW_SLEEPY.R, 0.5, "sine.inOut", t + 1.5);
+    }
+    /** A little "z" floats up beside his head (shares the notes pool). */
+    private zee(tl: Timeline, t: number, k: number) {
+      const el = this.notes[this.noteN++ % this.notes.length];
+      const dx = 7 + (k % 3) * 2;
+      const o = { p: 0 };
+      tl.fromTo(
+        o,
+        { p: 0 },
+        {
+          p: 1,
+          duration: 2.4,
+          ease: "none",
+          onStart: () => el.setAttribute("d", Z_D),
+          onUpdate: () => {
+            const p = o.p;
+            const x = 70 + dx * p + Math.sin(p * Math.PI * 2 + k) * 1.2;
+            const y = 18 - 17 * p;
+            el.setAttribute(
+              "transform",
+              `translate(${f3(x)} ${f3(y)}) rotate(${f3(-10 + 15 * p)}) scale(${f3(0.5 + 0.7 * p)})`,
+            );
+            el.style.opacity = String(p < 0.1 ? p / 0.1 : p > 0.6 ? Math.max(0, (1 - p) / 0.4) : 1);
+          },
+        },
+        t,
+      );
+    }
+    /** Whistle hold: head sways on the beat, brows bob, the "o" pulses, notes pop out. */
+    private whistle(hold: Timeline) {
+      const brows = [this.el.browL, this.el.browR];
+      const origin = `${WO.x} ${WO.y}`;
+      const beat = gsap.timeline({ repeat: -1 });
+      beat
+        .to(brows, { y: -0.95, duration: 0.07, ease: "power2.out" }, 0)
+        .to(brows, { y: -0.5, duration: 0.25, ease: "power2.inOut" }, 0.1)
+        .to(
+          this.el.mouthAct,
+          { scale: 1.12, svgOrigin: origin, duration: 0.07, ease: "power2.out" },
+          0,
+        )
+        .to(
+          this.el.mouthAct,
+          { scale: 1, svgOrigin: origin, duration: 0.25, ease: "power2.inOut" },
+          0.1,
+        )
+        .to({}, { duration: BEAT }, 0);
+      hold.add(beat, 0);
+      hold
+        .to(
+          this.el.headTilt,
+          { rotation: 1.2, svgOrigin: NECK, duration: BEAT, ease: "sine.out" },
+          0,
+        )
+        .fromTo(
+          this.el.headTilt,
+          { rotation: 1.2 },
+          {
+            rotation: -1.2,
+            svgOrigin: NECK,
+            duration: BEAT * 2,
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
+          },
+          BEAT,
+        );
+      const notes = gsap.timeline({ repeat: -1 });
+      for (let i = 0; i < 4; i++) this.note(notes, BEAT * (1 + 2 * i));
+      notes.to({}, { duration: BEAT * 8 }, 0);
+      hold.add(notes, 0);
+    }
+    /** One note pops out of the mouth, drifts up on a wave, wobbles, scales in, fades out. */
+    private note(tl: Timeline, t: number) {
+      const k = this.noteN++ % this.notes.length;
+      const el = this.notes[k];
+      const dx = rand(11, 18);
+      const dy = -rand(26, 31);
+      const wave = rand(1.2, 2.2);
+      const ph = rand(0, Math.PI * 2);
+      const spin = rand(-15, 15);
+      const pop = gsap.parseEase("back.out(2.5)");
+      const o = { p: 0 };
+      tl.fromTo(
+        o,
+        { p: 0 },
+        {
+          p: 1,
+          duration: 1.8,
+          ease: "none",
+          onStart: () => el.setAttribute("d", NOTES[k % 2]),
+          onUpdate: () => {
+            const p = o.p;
+            const e = 1 - Math.pow(1 - p, 1.6);
+            const x = NOTE_FROM[0] + dx * e + Math.sin(ph + p * Math.PI * 3) * wave * p;
+            const y = NOTE_FROM[1] + dy * e;
+            const s = p < 0.15 ? pop(p / 0.15) : 1;
+            const rot = Math.sin(ph + p * Math.PI * 2) * 12 + spin * p;
+            el.setAttribute(
+              "transform",
+              `translate(${f3(x)} ${f3(y)}) rotate(${f3(rot)}) scale(${f3(0.6 + 0.7 * s)})`,
+            );
+            el.style.opacity = String(
+              p < 0.06 ? p / 0.06 : p > 0.62 ? Math.max(0, (1 - p) / 0.38) : 1,
+            );
+          },
+        },
+        t,
+      );
+    }
+
+    // ---------- triggers ----------
+    private listen() {
+      const on = (target: EventTarget, type: string, fn: (e: PointerEvent) => void) => {
+        const handler = fn as EventListener;
+        target.addEventListener(type, handler);
+        this.cleanups.push(() => target.removeEventListener(type, handler));
+      };
+
+      // poking him: many clicks/taps in a short window
+      on(this.svg, "pointerdown", () => {
+        const now = performance.now();
+        this.clicks = this.clicks.filter((t) => now - t < ANGER_CLICK_WINDOW_MS);
+        this.clicks.push(now);
+        if (this.mood === "angry" || this.clicks.length >= ANGER_CLICKS) {
+          this.clicks = [];
+          this.provoke();
+        }
+      });
+      // shaking the pointer over him: average speed over a short window, only while over him
+      on(this.svg, "pointermove", (e: PointerEvent) => {
+        const now = performance.now();
+        this.moves.push({ t: now, x: e.clientX, y: e.clientY });
+        while (this.moves.length && now - this.moves[0].t > ANGER_SPEED_WINDOW_MS)
+          this.moves.shift();
+        const first = this.moves[0];
+        const span = now - first.t;
+        if (span < ANGER_SPEED_WINDOW_MS * 0.7) return;
+        let dist = 0;
+        for (let i = 1; i < this.moves.length; i++)
+          dist += Math.hypot(
+            this.moves[i].x - this.moves[i - 1].x,
+            this.moves[i].y - this.moves[i - 1].y,
+          );
+        if (dist / span > ANGER_SPEED_PX_PER_MS) {
+          this.moves = [];
+          this.provoke();
+        }
+      });
+      on(this.svg, "pointerleave", () => (this.moves = []));
+
+      // "oh!" the first time the pointer finds him (then only after a long gap); OK only
+      on(this.svg, "pointerenter", () => {
+        const now = performance.now();
+        if (now - this.lastSurprise < SURPRISE_COOLDOWN_MS) return;
+        if (this.mood !== "ok" || this.transitioning) return;
+        this.lastSurprise = now;
+        const tl = gsap.timeline();
+        this.settleBeat(tl);
+        this.surprise(tl, 0.06);
+        this.beat?.kill();
+        this.beat = this.run(tl);
+      });
+
+      // any page input wakes him up and restarts the sleepy countdown
+      const input = () => this.onInput();
+      for (const type of [
+        "pointermove",
+        "pointerdown",
+        "keydown",
+        "wheel",
+        "touchstart",
+        "scroll",
+      ]) {
+        window.addEventListener(type, input, { passive: true });
+        this.cleanups.push(() => window.removeEventListener(type, input));
+      }
+
+      // cheering the call-to-action links: point while hovered/focused
+      document.querySelectorAll<HTMLElement>("[data-me-cheer]").forEach((cheer) => {
+        const enter = () => {
+          this.hoverCount++;
+          this.cancel("pointRelease");
+          this.request("point");
+        };
+        const leave = () => {
+          this.hoverCount = Math.max(0, this.hoverCount - 1);
+          if (this.hoverCount === 0)
+            this.after("pointRelease", POINT_RELEASE_DELAY_S, () => {
+              if (this.mood === "point" || this.queued === "point") this.request("ok");
+            });
+        };
+        cheer.querySelectorAll("a, button").forEach((link) => {
+          on(link, "pointerenter", enter);
+          on(link, "pointerleave", leave);
+          on(link, "focusin", enter);
+          on(link, "focusout", leave);
+        });
+        // scrolled into view (mobile-friendly): point once, rate-limited
+        const io = new IntersectionObserver(
+          ([entry]) => {
+            const now = performance.now();
+            if (!entry.isIntersecting || now - this.lastScrollPoint < POINT_SCROLL_COOLDOWN_MS)
+              return;
+            if (this.mood !== "ok" || this.transitioning || this.hoverCount > 0) return;
+            this.lastScrollPoint = now;
+            this.request("point", POINT_SCROLL_HOLD_S);
+          },
+          { threshold: POINT_SCROLL_THRESHOLD },
+        );
+        io.observe(cheer);
+        this.cleanups.push(() => io.disconnect());
+      });
+
+      // touch devices: a last point at the buttons as he is about to scroll away
+      if (window.matchMedia("(hover: none)").matches) {
+        let wasFull = false;
+        let lastExitPoint = -Infinity;
+        const exit = new IntersectionObserver(
+          ([entry]) => {
+            const full = entry.intersectionRatio >= 0.99;
+            const now = performance.now();
+            if (
+              wasFull &&
+              !full &&
+              entry.isIntersecting &&
+              now - lastExitPoint > POINT_EXIT_COOLDOWN_MS
+            ) {
+              lastExitPoint = now;
+              this.request("point", POINT_SCROLL_HOLD_S);
+            }
+            wasFull = full;
+          },
+          { rootMargin: POINT_EXIT_MARGIN, threshold: [0, 0.99] },
+        );
+        exit.observe(this.svg);
+        this.cleanups.push(() => exit.disconnect());
+      }
+
+      // pause while offscreen or the tab is hidden
+      const vis = new IntersectionObserver(([entry]) => {
+        this.onScreen = entry.isIntersecting;
+        this.setRunning();
+      });
+      vis.observe(this.svg);
+      this.cleanups.push(() => vis.disconnect());
+      on(document, "visibilitychange", () => this.setRunning());
+    }
+
+    private onInput() {
+      if (this.mood === "sleepy" || this.queued === "sleepy") {
+        this.request("ok");
+        this.restartSleepTimer();
+        return;
+      }
+      const now = performance.now();
+      if (now - this.lastInputReset < SLEEPY_INPUT_THROTTLE_MS) return;
+      this.lastInputReset = now;
+      this.restartSleepTimer();
+    }
+    /** Counts on the character clock, so time offscreen or in a hidden tab doesn't count. */
+    private restartSleepTimer() {
+      this.after("sleepy", this.sleepyAfterS, () => {
+        if ((this.mood === "ok" || this.mood === "whistle") && !this.transitioning)
+          this.request("sleepy");
+        else this.restartSleepTimer();
+      });
+    }
+
+    destroy() {
+      this.cleanups.forEach((fn) => fn());
+      this.clock.kill();
+    }
+  }
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduceMotion) {
+    document.querySelectorAll<SVGSVGElement>("svg[data-me]").forEach((svg) => {
+      // expose for debugging/automation
+      (svg as SVGSVGElement & { meCharacter?: MeCharacter }).meCharacter = new MeCharacter(svg);
+    });
+  }
+</script>
